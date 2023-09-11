@@ -20,7 +20,7 @@ class Laptop {
 public:
 	// Конструкторы/Деструктор
 	Laptop();
-	Laptop(CPU, GPU, RAM, SSD, const char*, const char*, const char*, int);
+	Laptop(const char*, const char*, const char*, int);
 	~Laptop();
 
 	void Input();
@@ -40,5 +40,5 @@ public:
 	char* SetModel(const char*);
 	char* SetColor(const char*);
 
-	int GetPrice(int);
+	int SetPrice(int);
 };

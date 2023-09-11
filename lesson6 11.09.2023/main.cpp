@@ -9,5 +9,8 @@ int main() {
 
     cout << "Hello World!\n";
 
+
+    Laptop laptop1;
+
     return 0;
 }
