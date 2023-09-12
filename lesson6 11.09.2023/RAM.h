@@ -17,31 +17,34 @@ public:
 	RAM(const char*, const char*, const char*, int, int, int, bool);
 	~RAM();
 
+	// Глубокое копирование
+	RAM(const RAM&);
+
 	void Input();
 	void Print();
 
 	// Аксессоры
 	// Геттеры
-	char* GetCompany(const char*);
-	char* GetModel(const char*);
-	char* GetMemoryType(const char*);
-
-	int GetMemory(int);
-	int GetMemoryFrequency(int);
-	int GetPrice(int);
-
-	bool GetRGB_Backlight(bool);
-
-
-	// Сеттеры
-	char* SetCompany();
-	char* SetModel();
-	char* SetMemoryType();
+	char* GetCompany();
+	char* GetModel();
+	char* GetMemoryType();
 
 	int GetMemory();
 	int GetMemoryFrequency();
 	int GetPrice();
 
-	bool SetRGB_Backlight();
+	bool GetRGB_Backlight();
+
+
+	// Сеттеры
+	void SetCompany(const char*);
+	void SetModel(const char*);
+	void SetMemoryType(const char*);
+
+	void SetMemory(int);
+	void SetMemoryFrequency(int);
+	void SetPrice(int);
+
+	void SetRGB_Backlight(bool);
 };
 

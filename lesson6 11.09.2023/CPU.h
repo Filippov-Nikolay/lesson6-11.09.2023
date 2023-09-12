@@ -6,7 +6,7 @@ class CPU {
 	char* model;
 	char* connectorType;
 
-	int NumberOfCores;
+	int numberOfCores;
 	int price;
 public:
 	// Конструкторы/Деструктор
@@ -14,24 +14,27 @@ public:
 	CPU(const char*, const char*, const char*, int, int);
 	~CPU();
 
+	// Глубокое копирование
+	CPU(const CPU&);
+
 	void Input();
 	void Print();
 
 	// Аксессоры
 	// Геттеры
-	char* GetCompany(const char*);
-	char* GetModel(const char*);
-	char* GetConnectorType(const char*);
+	char* GetCompany();
+	char* GetModel();
+	char* GetConnectorType();
 
-	int GetNumberOfCores(int);
-	int GetPrice(int);
+	int GetNumberOfCores();
+	int GetPrice();
 
 
 	// Сеттеры
-	char* SetCompany();
-	char* SetModel();
-	char* SetConnectorType();
+	void SetCompany(const char*);
+	void SetModel(const char*);
+	void SetConnectorType(const char*);
 
-	int SetNumberOfCores();
-	int SetPrice();
+	void SetNumberOfCores(int);
+	void SetPrice(int);
 };

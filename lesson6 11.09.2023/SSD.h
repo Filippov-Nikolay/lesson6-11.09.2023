@@ -11,38 +11,40 @@ class SSD {
 	int readingSpeed;
 	int writeSpeed;
 	int price;
-
 public:
 	// Конструкторы/Деструктор
 	SSD();
-	SSD(const char*, const char*, const char*, int, int, int, int);
+	SSD(const char*, const char*, const char*, const char*, int, int, int, int);
 	~SSD();
+
+	// Глубокое копирование
+	SSD(const SSD&);
 
 	void Input();
 	void Print();
 
 	// Аксессоры
 	// Геттеры
-	char* GetCompany(const char*);
-	char* GetModel(const char*);
-	char* GetFormFactor(const char*);
-	char* GetConnectorType(const char*);
+	char* GetCompany();
+	char* GetModel();
+	char* GetFormFactor();
+	char* GetConnectorType();
 
-	int GetMemory(int);
-	int GetReadingSpeed(int);
-	int GetWriteSpeed(int);
-	int GetPrice(int);
+	int GetMemory();
+	int GetReadingSpeed();
+	int GetWriteSpeed();
+	int GetPrice();
 
 
 	// Сеттеры
-	char* SetCompany(const char*);
-	char* SetModel(const char*);
-	char* SetFormFactor(const char*);
-	char* SetConnectorType(const char*);
+	void SetCompany(const char*);
+	void SetModel(const char*);
+	void SetFormFactor(const char*);
+	void SetConnectorType(const char*);
 
-	int SetMemory(int);
-	int SetReadingSpeed(int);
-	int SetWriteSpeed(int);
-	int SetPrice(int);
+	void SetMemory(int);
+	void SetReadingSpeed(int);
+	void SetWriteSpeed(int);
+	void SetPrice(int);
 };
 

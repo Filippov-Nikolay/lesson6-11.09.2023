@@ -11,28 +11,31 @@ class GPU {
 public:
 	// Конструкторы/Деструктор
 	GPU();
-	GPU(const char*, const char*, const char*, int);
+	GPU(const char*, const char*, const char*, int, int);
 	~GPU();
+
+	// Глубокое копирование
+	GPU(const GPU&);
 
 	void Input();
 	void Print();
 
 	// Аксессоры
 	// Геттеры
-	char* GetCompany(const char*);
-	char* GetModel(const char*);
-	char* GetMemoryType(const char*);
+	char* GetCompany();
+	char* GetModel();
+	char* GetMemoryType();
 
-	int GetMemory(int);
-	int GetPrice(int);
+	int GetVideoMemory();
+	int GetPrice();
 
 
 	// Сеттеры
-	char* SetCompany();
-	char* SetModel();
-	char* SetMemoryType();
+	void SetCompany(const char*);
+	void SetModel(const char*);
+	void SetMemoryType(const char*);
 
-	int SetMemory();
-	int SetPrice();
+	void SetMemory(int);
+	void SetPrice(int);
 };
 

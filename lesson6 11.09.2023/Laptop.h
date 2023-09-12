@@ -21,6 +21,7 @@ public:
 	// Конструкторы/Деструктор
 	Laptop();
 	Laptop(const char*, const char*, const char*, int);
+	Laptop(const char*, const char*, const char*, int, int);
 	~Laptop();
 
 	void Input();
