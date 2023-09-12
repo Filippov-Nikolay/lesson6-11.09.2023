@@ -25,21 +25,30 @@ public:
 	~Laptop();
 
 	void Input();
+	void InputCPU();
+	void InputGPU();
+	void InputRAM();
+	void InputSSD();
+
 	void Print();
+	void PrintCPU();
+	void PrintGPU();
+	void PrintRAM();
+	void PrintSSD();
 
 	// Аксессоры
 	// Геттеры
-	char* GetCompany(const char*);
-	char* GetModel(const char*);
-	char* GetColor(const char*);
+	char* GetCompany();
+	char* GetModel();
+	char* GetColor();
 
-	int GetPrice(int);
+	int GetPrice();
 
 
 	// Сеттеры
-	char* SetCompany(const char*);
-	char* SetModel(const char*);
-	char* SetColor(const char*);
+	void SetCompany(const char*);
+	void SetModel(const char*);
+	void SetColor(const char*);
 
-	int SetPrice(int);
+	void SetPrice(int);
 };

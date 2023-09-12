@@ -85,7 +85,7 @@ void SSD::Input() {
 		cout << "Delate model -> " << model << endl << endl;
 		delete[] model;
 	}
-	model = new char[strlen(model) + 1];
+	model = new char[strlen(buff) + 1];
 	strcpy_s(model, strlen(buff) + 1, buff);
 
 	// Форм-фактор

@@ -63,6 +63,7 @@ void CPU::Input() {
 	company = new char[strlen(buff) + 1];
 	strcpy_s(company, strlen(buff) + 1, buff);
 
+	
 	// Модель
 	cout << "Введите модель: ";
 	cin >> buff;
@@ -70,7 +71,7 @@ void CPU::Input() {
 		cout << "Delate model -> " << model << endl << endl;
 		delete[] model;
 	}
-	model = new char[strlen(model) + 1];
+	model = new char[strlen(buff) + 1];
 	strcpy_s(model, strlen(buff) + 1, buff);
 
 	// Тип подключения
