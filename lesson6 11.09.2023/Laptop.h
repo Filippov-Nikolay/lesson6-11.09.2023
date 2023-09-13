@@ -18,10 +18,16 @@ class Laptop {
 
 	int price;
 
+	// Статическое поле
 	static unsigned int numberOfLaptops;
 public:
 	// Конструкторы/Деструктор
 	Laptop();
+	Laptop(const char* cpuCompany, const char* cpuModel, const char* cpuConntectorType, int cpuNumberOfCores, int cpuPrice,
+		const char* gpuCompany, const char* gpuModel, const char* gpuMemoryType, int gpuVideoMemory, int gpuPrice,
+		const char* ramCompany, const char* ramModel, const char* ramMemoryType, int ramMemory, int ramMemoryFrequency, int ramPrice, bool ramRGB_Backlight,
+		const char* ssdCompany, const char* ssdModel, const char* ssdFormFactor, const char* ssdConnetcorPrice, int ssdMemory, int ssdReadingSpeed, int ssdWriteSpeed, int ssdPrice,
+		const char* leptopCompany, const char* leptopModel, const char* leptopColor);
 	Laptop(const char*);
 	Laptop(const char*, const char*);
 	Laptop(const char*, const char*, const char*);
@@ -35,6 +41,7 @@ public:
 	void InputSSD();
 
 	void Print() const;
+	void FullPrint() const;
 	void PrintInfoNumberOfLaptops() const;
 	void PrintCPU() const;
 	void PrintGPU() const;
