@@ -91,7 +91,7 @@ void GPU::Input() {
 	cout << "Введите цену: ";
 	cin >> price;
 }
-void GPU::Print() {
+void GPU::Print() const {
 	cout << "Компания: " << company << endl;
 	cout << "Модель: " << model << endl;
 	cout << "Тип подключения: " << memoryType << endl;
@@ -101,19 +101,19 @@ void GPU::Print() {
 
 
 // Геттеры
-char* GPU::GetCompany() {
+char* GPU::GetCompany() const {
 	return company;
 }
-char* GPU::GetModel() {
+char* GPU::GetModel() const {
 	return model;
 }
-char* GPU::GetMemoryType() {
+char* GPU::GetMemoryType() const {
 	return memoryType;
 }
-int GPU::GetVideoMemory() {
+int GPU::GetVideoMemory() const {
 	return videoMemory;
 }
-int GPU::GetPrice() {
+int GPU::GetPrice() const {
 	return price;
 }
 

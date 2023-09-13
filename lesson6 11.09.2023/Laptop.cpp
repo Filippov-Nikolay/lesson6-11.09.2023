@@ -9,12 +9,15 @@ using namespace std;
 
 // cp - company, md - model, cl - color, pr - price
 
+unsigned int Laptop::numberOfLaptops = 0U;
+
 Laptop::Laptop() {
 	company = nullptr;
 	model = nullptr;
 	color = nullptr;
 
 	price = 0;
+	++numberOfLaptops;
 }
 Laptop::Laptop(const char* cp, const char* md, const char* cl, int pr) {
 	cout << "Constructor 4 params" << endl;
@@ -29,11 +32,14 @@ Laptop::Laptop(const char* cp, const char* md, const char* cl, int pr) {
 	strcpy_s(color, strlen(cl) + 1, cl);
 
 	price = pr;
+	++numberOfLaptops;
 }
 Laptop::~Laptop() {
 	delete[] company;
 	delete[] model;
 	delete[] color;
+
+	--numberOfLaptops;
 }
 
 void Laptop::Input() {
@@ -87,37 +93,40 @@ void Laptop::InputSSD() {
 	ssd.Input();
 }
 
-void Laptop::Print() {
+void Laptop::Print() const {
 	cout << "Компания: " << company << endl;
 	cout << "Модель: " << model << endl;
 	cout << "Цвет: " << color << endl;
 	cout << "Цена: " << price << endl;
 }
-void Laptop::PrintCPU() {
+void Laptop::PrintInfoNumberOfLaptops() const {
+	cout << "Кол-во ноутбуков: " << numberOfLaptops << endl;
+}
+void Laptop::PrintCPU() const {
 	cpu.Print();
 }
-void Laptop::PrintGPU() {
+void Laptop::PrintGPU() const {
 	gpu.Print();
 }
-void Laptop::PrintRAM() {
+void Laptop::PrintRAM() const {
 	ram.Print();
 }
-void Laptop::PrintSSD() {
+void Laptop::PrintSSD() const {
 	ssd.Print();
 }
 
 // Аксессоры
 // Геттеры
-char* Laptop::GetCompany() {
+char* Laptop::GetCompany() const {
 	return company;
 }
-char* Laptop::GetModel() {
+char* Laptop::GetModel() const {
 	return model;
 }
-char* Laptop::GetColor() {
+char* Laptop::GetColor() const {
 	return color;
 }
-int Laptop::GetPrice() {
+int Laptop::GetPrice() const {
 	return price;
 }
 

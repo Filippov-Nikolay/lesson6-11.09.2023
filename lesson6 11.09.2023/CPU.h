@@ -18,16 +18,16 @@ public:
 	CPU(const CPU&);
 
 	void Input();
-	void Print();
+	void Print() const;
 
 	// Аксессоры
 	// Геттеры
-	char* GetCompany();
-	char* GetModel();
-	char* GetConnectorType();
+	char* GetCompany() const;
+	char* GetModel() const;
+	char* GetConnectorType() const;
 
-	int GetNumberOfCores();
-	int GetPrice();
+	int GetNumberOfCores() const;
+	int GetPrice() const;
 
 
 	// Сеттеры

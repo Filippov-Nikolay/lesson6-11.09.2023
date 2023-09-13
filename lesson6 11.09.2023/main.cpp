@@ -16,12 +16,12 @@ int main() {
 
 
     Laptop laptop;
+    Laptop laptop1;
+    Laptop laptop2;
     CPU cpu;
     GPU gpu;
     RAM ram;
     SSD ssd;
-
-    laptop.InputCPU();
     
 
     return 0;

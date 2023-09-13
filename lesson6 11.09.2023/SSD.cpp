@@ -124,7 +124,7 @@ void SSD::Input() {
 	cout << "Введите цену: ";
 	cin >> price;
 }
-void SSD::Print() {
+void SSD::Print() const {
 	cout << "Компания: " << company << endl;
 	cout << "Модель: " << model << endl;
 	cout << "Форм-фактор: " << formFactor << endl;
@@ -138,28 +138,28 @@ void SSD::Print() {
 
 
 // Геттеры
-char* SSD::GetCompany() {
+char* SSD::GetCompany() const {
 	return company;
 }
-char* SSD::GetModel() {
+char* SSD::GetModel() const {
 	return model;
 }
-char* SSD::GetFormFactor() {
+char* SSD::GetFormFactor() const {
 	return formFactor;
 }
-char* SSD::GetConnectorType() {
+char* SSD::GetConnectorType() const {
 	return connectorType;
 }
-int SSD::GetMemory() {
+int SSD::GetMemory() const {
 	return memory;
 }
-int SSD::GetReadingSpeed() {
+int SSD::GetReadingSpeed() const {
 	return readingSpeed;
 }
-int SSD::GetWriteSpeed() {
+int SSD::GetWriteSpeed() const {
 	return writeSpeed;
 }
-int SSD::GetPrice() {
+int SSD::GetPrice() const {
 	return price;
 }
 

@@ -18,16 +18,16 @@ public:
 	GPU(const GPU&);
 
 	void Input();
-	void Print();
+	void Print() const;
 
 	// Аксессоры
 	// Геттеры
-	char* GetCompany();
-	char* GetModel();
-	char* GetMemoryType();
+	char* GetCompany() const;
+	char* GetModel() const;
+	char* GetMemoryType() const;
 
-	int GetVideoMemory();
-	int GetPrice();
+	int GetVideoMemory() const;
+	int GetPrice() const;
 
 
 	// Сеттеры

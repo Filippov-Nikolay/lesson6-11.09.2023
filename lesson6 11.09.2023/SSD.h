@@ -21,19 +21,19 @@ public:
 	SSD(const SSD&);
 
 	void Input();
-	void Print();
+	void Print() const;
 
 	// Аксессоры
 	// Геттеры
-	char* GetCompany();
-	char* GetModel();
-	char* GetFormFactor();
-	char* GetConnectorType();
+	char* GetCompany() const;
+	char* GetModel() const;
+	char* GetFormFactor() const;
+	char* GetConnectorType() const;
 
-	int GetMemory();
-	int GetReadingSpeed();
-	int GetWriteSpeed();
-	int GetPrice();
+	int GetMemory() const;
+	int GetReadingSpeed() const;
+	int GetWriteSpeed() const;
+	int GetPrice() const;
 
 
 	// Сеттеры

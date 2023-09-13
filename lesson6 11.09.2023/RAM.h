@@ -21,19 +21,19 @@ public:
 	RAM(const RAM&);
 
 	void Input();
-	void Print();
+	void Print() const;
 
 	// Аксессоры
 	// Геттеры
-	char* GetCompany();
-	char* GetModel();
-	char* GetMemoryType();
+	char* GetCompany() const;
+	char* GetModel() const;
+	char* GetMemoryType() const;
 
-	int GetMemory();
-	int GetMemoryFrequency();
-	int GetPrice();
+	int GetMemory() const;
+	int GetMemoryFrequency() const;
+	int GetPrice() const;
 
-	bool GetRGB_Backlight();
+	bool GetRGB_Backlight() const;
 
 
 	// Сеттеры

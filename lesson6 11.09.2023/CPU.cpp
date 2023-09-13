@@ -92,7 +92,7 @@ void CPU::Input() {
 	cout << "Введите цену: ";
 	cin >> price;
 }
-void CPU::Print() {
+void CPU::Print() const {
 	cout << "Компания: " << company << endl;
 	cout << "Модель: " << model << endl;
 	cout << "Тип подключения: " << connectorType << endl;
@@ -102,19 +102,19 @@ void CPU::Print() {
 
 
 // Геттеры
-char* CPU::GetCompany() {
+char* CPU::GetCompany() const {
 	return company;
 }
-char* CPU::GetModel() {
+char* CPU::GetModel() const {
 	return model;
 }
-char* CPU::GetConnectorType() {
+char* CPU::GetConnectorType() const {
 	return connectorType;
 }
-int CPU::GetNumberOfCores() {
+int CPU::GetNumberOfCores() const {
 	return numberOfCores;
 }
-int CPU::GetPrice() {
+int CPU::GetPrice() const {
 	return price;
 }
 

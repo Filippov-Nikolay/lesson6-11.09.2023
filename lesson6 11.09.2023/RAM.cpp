@@ -115,7 +115,7 @@ void RAM::Input() {
 	cout << "Введите цену: ";
 	cin >> price;
 }
-void RAM::Print() {
+void RAM::Print() const {
 	cout << "Компания: " << company << endl;
 	cout << "Модель: " << model << endl;
 	cout << "Тип подключения: " << memoryType << endl;
@@ -128,25 +128,25 @@ void RAM::Print() {
 
 
 // Геттеры
-char* RAM::GetCompany() {
+char* RAM::GetCompany() const {
 	return company;
 }
-char* RAM::GetModel() {
+char* RAM::GetModel() const {
 	return model;
 }
-char* RAM::GetMemoryType() {
+char* RAM::GetMemoryType() const {
 	return memoryType;
 }
-int RAM::GetMemory() {
+int RAM::GetMemory() const {
 	return memory;
 }
-int RAM::GetMemoryFrequency() {
+int RAM::GetMemoryFrequency() const {
 	return memoryFrequency;
 }
-int RAM::GetPrice() {
+int RAM::GetPrice() const {
 	return price;
 }
-bool RAM::GetRGB_Backlight() {
+bool RAM::GetRGB_Backlight() const {
 	return RGB_Backlight;
 }
 

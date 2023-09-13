@@ -17,6 +17,8 @@ class Laptop {
 	char* color;
 
 	int price;
+
+	static unsigned int numberOfLaptops;
 public:
 	// Конструкторы/Деструктор
 	Laptop();
@@ -30,19 +32,20 @@ public:
 	void InputRAM();
 	void InputSSD();
 
-	void Print();
-	void PrintCPU();
-	void PrintGPU();
-	void PrintRAM();
-	void PrintSSD();
+	void Print() const;
+	void PrintInfoNumberOfLaptops() const;
+	void PrintCPU() const;
+	void PrintGPU() const;
+	void PrintRAM() const;
+	void PrintSSD() const;
 
 	// Аксессоры
 	// Геттеры
-	char* GetCompany();
-	char* GetModel();
-	char* GetColor();
+	char* GetCompany() const;
+	char* GetModel() const;
+	char* GetColor() const;
 
-	int GetPrice();
+	int GetPrice() const;
 
 
 	// Сеттеры
