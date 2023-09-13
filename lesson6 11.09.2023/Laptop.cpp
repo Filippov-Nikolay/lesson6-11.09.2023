@@ -19,17 +19,22 @@ Laptop::Laptop() {
 	price = 0;
 	++numberOfLaptops;
 }
-Laptop::Laptop(const char* cp, const char* md, const char* cl, int pr) {
-	cout << "Constructor 4 params" << endl;
 
+// Делегирование
+Laptop::Laptop(const char* cp) {
 	company = new char[strlen(cp) + 1];
 	strcpy_s(company, strlen(cp) + 1, cp);
-	
+}
+Laptop::Laptop(const char* cp, const char* md) : Laptop(cp) {
 	model = new char[strlen(md) + 1];
 	strcpy_s(model, strlen(md) + 1, md);
-
+}
+Laptop::Laptop(const char* cp, const char* md, const char* cl) : Laptop(cp, md) {
 	color = new char[strlen(cl) + 1];
 	strcpy_s(color, strlen(cl) + 1, cl);
+}
+Laptop::Laptop(const char* cp, const char* md, const char* cl, int pr) : Laptop(cp, md, cl) {
+	cout << "Constructor 4 params" << endl;
 
 	price = pr;
 	++numberOfLaptops;
@@ -42,8 +47,22 @@ Laptop::~Laptop() {
 	--numberOfLaptops;
 }
 
+
 void Laptop::Input() {
 	char buff[100];
+	int TempPrice = 0;
+
+	// Процессор
+	cpu.Input();
+
+	// Видео-карта
+	gpu.Input();
+
+	// ОЗУ
+	ram.Input();
+
+	// Твёрдотельный накопитель
+	ssd.Input();
 
 	// Компания
 	cout << "Введите компанию: ";
@@ -77,8 +96,16 @@ void Laptop::Input() {
 	strcpy_s(color, strlen(buff) + 1, buff);
 
 	// Цена
+	TempPrice += cpu.GetPrice();
+	TempPrice += gpu.GetPrice();
+	TempPrice += ram.GetPrice();
+	TempPrice += ssd.GetPrice();
+
+	price = TempPrice;
+	/*
 	cout << "Введите цену: ";
 	cin >> price;
+	*/
 }
 void Laptop::InputCPU() {
 	cpu.Input();
@@ -114,6 +141,7 @@ void Laptop::PrintRAM() const {
 void Laptop::PrintSSD() const {
 	ssd.Print();
 }
+
 
 // Аксессоры
 // Геттеры

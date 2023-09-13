@@ -15,14 +15,13 @@ int main() {
     cout << "Hello World!\n";
 
 
-    Laptop laptop;
-    Laptop laptop1;
-    Laptop laptop2;
+    Laptop laptop("Lenovo", "SQ-34", "black", 5000);
     CPU cpu;
     GPU gpu;
     RAM ram;
     SSD ssd;
-    
+
+    laptop.Print();
 
     return 0;
 }

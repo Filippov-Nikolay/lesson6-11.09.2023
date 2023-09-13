@@ -22,8 +22,10 @@ class Laptop {
 public:
 	// Конструкторы/Деструктор
 	Laptop();
+	Laptop(const char*);
+	Laptop(const char*, const char*);
+	Laptop(const char*, const char*, const char*);
 	Laptop(const char*, const char*, const char*, int);
-	Laptop(const char*, const char*, const char*, int, int);
 	~Laptop();
 
 	void Input();
