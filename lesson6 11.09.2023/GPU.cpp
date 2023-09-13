@@ -1,11 +1,11 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "GPU.h"
 
 using namespace std;
 
 // cp - company, md - model, mt -  memoryType, vm - videoMemory, pr - price
 
-// Конструкторы/Деструктор
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 GPU::GPU() {
 	company = nullptr;
 	model = nullptr;
@@ -34,7 +34,7 @@ GPU::~GPU() {
 	delete[] memoryType;
 }
 
-// Глубокое копирование
+// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 GPU::GPU(const GPU& obj) {
 	company = new char[strlen(company) + 1];
 	strcpy_s(company, strlen(obj.company) + 1, obj.company);
@@ -53,8 +53,8 @@ GPU::GPU(const GPU& obj) {
 void GPU::Input() {
 	char buff[100];
 
-	// Компания
-	cout << "Введите компанию: ";
+	// РљРѕРјРїР°РЅРёСЏ
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕРјРїР°РЅРёСЋ: ";
 	cin >> buff;
 	if (company != nullptr) {
 		cout << "Delate company -> " << company << endl << endl;
@@ -63,8 +63,8 @@ void GPU::Input() {
 	company = new char[strlen(buff) + 1];
 	strcpy_s(company, strlen(buff) + 1, buff);
 
-	// Модель
-	cout << "Введите модель: ";
+	// РњРѕРґРµР»СЊ
+	cout << "Р’РІРµРґРёС‚Рµ РјРѕРґРµР»СЊ: ";
 	cin >> buff;
 	if (model != nullptr) {
 		cout << "Delate model -> " << model << endl << endl;
@@ -73,8 +73,8 @@ void GPU::Input() {
 	model = new char[strlen(buff) + 1];
 	strcpy_s(model, strlen(buff) + 1, buff);
 
-	// Тип подключения
-	cout << "Введите тип подключения: ";
+	// РўРёРї РїРѕРґРєР»СЋС‡РµРЅРёСЏ
+	cout << "Р’РІРµРґРёС‚Рµ С‚РёРї РїРѕРґРєР»СЋС‡РµРЅРёСЏ: ";
 	cin >> buff;
 	if (memoryType != nullptr) {
 		cout << "Delate memoryType -> " << memoryType << endl << endl;
@@ -83,24 +83,24 @@ void GPU::Input() {
 	memoryType = new char[strlen(buff) + 1];
 	strcpy_s(memoryType, strlen(buff) + 1, buff);
 
-	// Кол-во ядер
-	cout << "Введите кол-во ядер: ";
+	// РљРѕР»-РІРѕ СЏРґРµСЂ
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ СЏРґРµСЂ: ";
 	cin >> videoMemory;
 
-	// Цена
-	cout << "Введите цену: ";
+	// Р¦РµРЅР°
+	cout << "Р’РІРµРґРёС‚Рµ С†РµРЅСѓ: ";
 	cin >> price;
 }
 void GPU::Print() const {
-	cout << "Компания: " << company << endl;
-	cout << "Модель: " << model << endl;
-	cout << "Тип подключения: " << memoryType << endl;
-	cout << "Кол-во ядер: " << videoMemory << endl;
-	cout << "Цена: " << price << endl;
+	cout << "РљРѕРјРїР°РЅРёСЏ: " << company << endl;
+	cout << "РњРѕРґРµР»СЊ: " << model << endl;
+	cout << "РўРёРї РїРѕРґРєР»СЋС‡РµРЅРёСЏ: " << memoryType << endl;
+	cout << "РљРѕР»-РІРѕ СЏРґРµСЂ: " << videoMemory << endl;
+	cout << "Р¦РµРЅР°: " << price << endl;
 }
 
 
-// Геттеры
+// Р“РµС‚С‚РµСЂС‹
 char* GPU::GetCompany() const {
 	return company;
 }
@@ -118,7 +118,7 @@ int GPU::GetPrice() const {
 }
 
 
-// Сеттеры
+// РЎРµС‚С‚РµСЂС‹
 void GPU::SetCompany(const char* cp) {
 	if (cp != nullptr) {
 		cout << "Delate company -> " << this->company << endl;

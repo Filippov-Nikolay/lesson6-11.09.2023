@@ -1,11 +1,11 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "CPU.h"
 
 using namespace std;
 
 // cp - company, md - model, ct - connectorType, noc - numberOfCores, pr - price
 
-// Конструкторы/Деструктор
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 CPU::CPU() {
 	company = nullptr;
 	model = nullptr;
@@ -34,7 +34,7 @@ CPU::~CPU() {
 	delete[] connectorType;
 }
 
-// Глубокое копирование
+// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 CPU::CPU(const CPU& obj) {
 	company = new char[strlen(company) + 1];
 	strcpy_s(company, strlen(obj.company) + 1, obj.company);
@@ -53,8 +53,8 @@ CPU::CPU(const CPU& obj) {
 void CPU::Input() {
 	char buff[100];
 
-	// Компания
-	cout << "Введите компанию: ";
+	// РљРѕРјРїР°РЅРёСЏ
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕРјРїР°РЅРёСЋ: ";
 	cin >> buff;
 	if (company != nullptr) {
 		cout << "Delate company -> " << company << endl << endl;
@@ -64,8 +64,8 @@ void CPU::Input() {
 	strcpy_s(company, strlen(buff) + 1, buff);
 
 	
-	// Модель
-	cout << "Введите модель: ";
+	// РњРѕРґРµР»СЊ
+	cout << "Р’РІРµРґРёС‚Рµ РјРѕРґРµР»СЊ: ";
 	cin >> buff;
 	if (model != nullptr) {
 		cout << "Delate model -> " << model << endl << endl;
@@ -74,8 +74,8 @@ void CPU::Input() {
 	model = new char[strlen(buff) + 1];
 	strcpy_s(model, strlen(buff) + 1, buff);
 
-	// Тип подключения
-	cout << "Введите тип подключения: ";
+	// РўРёРї РїРѕРґРєР»СЋС‡РµРЅРёСЏ
+	cout << "Р’РІРµРґРёС‚Рµ С‚РёРї РїРѕРґРєР»СЋС‡РµРЅРёСЏ: ";
 	cin >> buff;
 	if (connectorType != nullptr) {
 		cout << "Delate connectorType -> " << connectorType << endl << endl;
@@ -84,24 +84,24 @@ void CPU::Input() {
 	connectorType = new char[strlen(buff) + 1];
 	strcpy_s(connectorType, strlen(buff) + 1, buff);
 
-	// Кол-во ядер
-	cout << "Введите кол-во ядер: ";
+	// РљРѕР»-РІРѕ СЏРґРµСЂ
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ СЏРґРµСЂ: ";
 	cin >> numberOfCores;
 
-	// Цена
-	cout << "Введите цену: ";
+	// Р¦РµРЅР°
+	cout << "Р’РІРµРґРёС‚Рµ С†РµРЅСѓ: ";
 	cin >> price;
 }
 void CPU::Print() const {
-	cout << "Компания: " << company << endl;
-	cout << "Модель: " << model << endl;
-	cout << "Тип подключения: " << connectorType << endl;
-	cout << "Кол-во ядер: " << numberOfCores << endl;
-	cout << "Цена: " << price << endl;
+	cout << "РљРѕРјРїР°РЅРёСЏ: " << company << endl;
+	cout << "РњРѕРґРµР»СЊ: " << model << endl;
+	cout << "РўРёРї РїРѕРґРєР»СЋС‡РµРЅРёСЏ: " << connectorType << endl;
+	cout << "РљРѕР»-РІРѕ СЏРґРµСЂ: " << numberOfCores << endl;
+	cout << "Р¦РµРЅР°: " << price << endl;
 }
 
 
-// Геттеры
+// Р“РµС‚С‚РµСЂС‹
 char* CPU::GetCompany() const {
 	return company;
 }
@@ -119,7 +119,7 @@ int CPU::GetPrice() const {
 }
 
 
-// Сеттеры
+// РЎРµС‚С‚РµСЂС‹
 void CPU::SetCompany(const char* cp) {
 	if (cp != nullptr) {
 		cout << "Delate company -> " << this->company << endl;

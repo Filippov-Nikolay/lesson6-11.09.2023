@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "Laptop.h"
 #include "CPU.h"
 #include "GPU.h"
@@ -7,7 +7,7 @@
 
 using namespace std;
 
-// Статическое поле
+// РЎС‚Р°С‚РёС‡РµСЃРєРѕРµ РїРѕР»Рµ
 unsigned int Laptop::numberOfLaptops = 0U;
 
 Laptop::Laptop() {
@@ -42,7 +42,7 @@ Laptop::Laptop(const char* cpuCompany, const char* cpuModel, const char* cpuConn
 		price += cpuPrice += gpuPrice += ramPrice += ssdPrice;
 }
 
-// Делегирование
+// Р”РµР»РµРіРёСЂРѕРІР°РЅРёРµ
 Laptop::Laptop(const char* cp) {
 	company = new char[strlen(cp) + 1];
 	strcpy_s(company, strlen(cp) + 1, cp);
@@ -79,28 +79,28 @@ void Laptop::Input() {
 	char buff[100];
 	int TempPrice = 0;
 
-	// Процессор
-	cout << "Ввод данных о процессоре: " << endl;
+	// РџСЂРѕС†РµСЃСЃРѕСЂ
+	cout << "Р’РІРѕРґ РґР°РЅРЅС‹С… Рѕ РїСЂРѕС†РµСЃСЃРѕСЂРµ: " << endl;
 	cpu.Input();
 	cout << endl << endl;
 
-	// Видео-карта
-	cout << "Ввод данных о видео-карте: " << endl;
+	// Р’РёРґРµРѕ-РєР°СЂС‚Р°
+	cout << "Р’РІРѕРґ РґР°РЅРЅС‹С… Рѕ РІРёРґРµРѕ-РєР°СЂС‚Рµ: " << endl;
 	gpu.Input();
 	cout << endl << endl;
 
-	// ОЗУ
-	cout << "Ввод данных о ОЗУ: " << endl;
+	// РћР—РЈ
+	cout << "Р’РІРѕРґ РґР°РЅРЅС‹С… Рѕ РћР—РЈ: " << endl;
 	ram.Input();
 	cout << endl << endl;
 
-	// Твёрдотельный накопитель
-	cout << "Ввод данных о SSD: " << endl;
+	// РўРІС‘СЂРґРѕС‚РµР»СЊРЅС‹Р№ РЅР°РєРѕРїРёС‚РµР»СЊ
+	cout << "Р’РІРѕРґ РґР°РЅРЅС‹С… Рѕ SSD: " << endl;
 	ssd.Input();
 	cout << endl << endl;
 
-	// Компания
-	cout << "Введите компанию: ";
+	// РљРѕРјРїР°РЅРёСЏ
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕРјРїР°РЅРёСЋ: ";
 	cin >> buff;
 	if (company != nullptr) {
 		cout << "Delate company -> " << company << endl << endl;
@@ -110,8 +110,8 @@ void Laptop::Input() {
 	strcpy_s(company, strlen(buff) + 1, buff);
 
 
-	// Модель
-	cout << "Введите модель: ";
+	// РњРѕРґРµР»СЊ
+	cout << "Р’РІРµРґРёС‚Рµ РјРѕРґРµР»СЊ: ";
 	cin >> buff;
 	if (model != nullptr) {
 		cout << "Delate model -> " << model << endl << endl;
@@ -120,8 +120,8 @@ void Laptop::Input() {
 	model = new char[strlen(buff) + 1];
 	strcpy_s(model, strlen(buff) + 1, buff);
 
-	// Цвет
-	cout << "Введите цвет: ";
+	// Р¦РІРµС‚
+	cout << "Р’РІРµРґРёС‚Рµ С†РІРµС‚: ";
 	cin >> buff;
 	if (color != nullptr) {
 		cout << "Delate color -> " << color << endl << endl;
@@ -130,7 +130,7 @@ void Laptop::Input() {
 	color = new char[strlen(buff) + 1];
 	strcpy_s(color, strlen(buff) + 1, buff);
 
-	// Цена
+	// Р¦РµРЅР°
 	TempPrice += cpu.GetPrice();
 	TempPrice += gpu.GetPrice();
 	TempPrice += ram.GetPrice();
@@ -152,36 +152,36 @@ void Laptop::InputSSD() {
 }
 
 void Laptop::Print() const {
-	cout << "Компания: " << company << endl;
-	cout << "Модель: " << model << endl;
-	cout << "Цвет: " << color << endl;
-	cout << "Цена: " << price << endl;
+	cout << "РљРѕРјРїР°РЅРёСЏ: " << company << endl;
+	cout << "РњРѕРґРµР»СЊ: " << model << endl;
+	cout << "Р¦РІРµС‚: " << color << endl;
+	cout << "Р¦РµРЅР°: " << price << endl;
 }
 void Laptop::FullPrint() const {
-	cout << "Ноутбук: " << endl;
-	cout << "Компания: " << company << endl;
-	cout << "Модель: " << model << endl;
-	cout << "Цвет: " << color << endl;
+	cout << "РќРѕСѓС‚Р±СѓРє: " << endl;
+	cout << "РљРѕРјРїР°РЅРёСЏ: " << company << endl;
+	cout << "РњРѕРґРµР»СЊ: " << model << endl;
+	cout << "Р¦РІРµС‚: " << color << endl;
 	cout << endl;
 
-	cout << "Процессор: " << endl;
+	cout << "РџСЂРѕС†РµСЃСЃРѕСЂ: " << endl;
 	cpu.Print();
 	cout << endl;
 
-	cout << "Видео-карта: " << endl;
+	cout << "Р’РёРґРµРѕ-РєР°СЂС‚Р°: " << endl;
 	gpu.Print();
 	cout << endl;
 
-	cout << "ОЗУ: " << endl;
+	cout << "РћР—РЈ: " << endl;
 	ram.Print();
 	cout << endl;
 
-	cout << "SSD-накопитель: " << endl;
+	cout << "SSD-РЅР°РєРѕРїРёС‚РµР»СЊ: " << endl;
 	ssd.Print();
 	cout << endl;
 }
 void Laptop::PrintInfoNumberOfLaptops() const {
-	cout << "Кол-во ноутбуков: " << numberOfLaptops << endl;
+	cout << "РљРѕР»-РІРѕ РЅРѕСѓС‚Р±СѓРєРѕРІ: " << numberOfLaptops << endl;
 }
 void Laptop::PrintCPU() const {
 	cpu.Print();
@@ -197,8 +197,8 @@ void Laptop::PrintSSD() const {
 }
 
 
-// Аксессоры
-// Геттеры
+// РђРєСЃРµСЃСЃРѕСЂС‹
+// Р“РµС‚С‚РµСЂС‹
 char* Laptop::GetCompany() const {
 	return company;
 }
@@ -213,7 +213,7 @@ int Laptop::GetPrice() const {
 }
 
 
-// Сеттеры
+// РЎРµС‚С‚РµСЂС‹
 void Laptop::SetCompany(const char* cp) {
 	if (cp != nullptr) {
 		cout << "Delate company -> " << this->company << endl;

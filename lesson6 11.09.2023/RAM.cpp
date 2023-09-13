@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "RAM.h"
 
 using namespace std;
@@ -7,7 +7,7 @@ using namespace std;
 // me - memory, mf - memoryFrequency, pr - price
 // RGB_bl - RGB_Backlight
 
-// Конструкторы/Деструктор
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 RAM::RAM() {
 	company = nullptr;
 	model = nullptr;
@@ -43,7 +43,7 @@ RAM::~RAM() {
 	delete[] memoryType;
 }
 
-// Глубокое копирование
+// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 RAM::RAM(const RAM& obj) {
 	company = new char[strlen(company) + 1];
 	strcpy_s(company, strlen(obj.company) + 1, obj.company);
@@ -65,8 +65,8 @@ RAM::RAM(const RAM& obj) {
 void RAM::Input() {
 	char buff[100];
 
-	// Компания
-	cout << "Введите компанию: ";
+	// РљРѕРјРїР°РЅРёСЏ
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕРјРїР°РЅРёСЋ: ";
 	cin >> buff;
 	if (company != nullptr) {
 		cout << "Delate company -> " << company << endl << endl;
@@ -75,8 +75,8 @@ void RAM::Input() {
 	company = new char[strlen(buff) + 1];
 	strcpy_s(company, strlen(buff) + 1, buff);
 
-	// Модель
-	cout << "Введите модель: ";
+	// РњРѕРґРµР»СЊ
+	cout << "Р’РІРµРґРёС‚Рµ РјРѕРґРµР»СЊ: ";
 	cin >> buff;
 	if (model != nullptr) {
 		cout << "Delate model -> " << model << endl << endl;
@@ -85,8 +85,8 @@ void RAM::Input() {
 	model = new char[strlen(buff) + 1];
 	strcpy_s(model, strlen(buff) + 1, buff);
 
-	// Тип подключения
-	cout << "Введите тип подключения: ";
+	// РўРёРї РїРѕРґРєР»СЋС‡РµРЅРёСЏ
+	cout << "Р’РІРµРґРёС‚Рµ С‚РёРї РїРѕРґРєР»СЋС‡РµРЅРёСЏ: ";
 	cin >> buff;
 	if (memoryType != nullptr) {
 		cout << "Delate memoryType -> " << memoryType << endl << endl;
@@ -95,39 +95,39 @@ void RAM::Input() {
 	memoryType = new char[strlen(buff) + 1];
 	strcpy_s(memoryType, strlen(buff) + 1, buff);
 
-	// Размер памяти
-	cout << "Введите размер памяти: ";
+	// Р Р°Р·РјРµСЂ РїР°РјСЏС‚Рё
+	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РїР°РјСЏС‚Рё: ";
 	cin >> memory;
 
-	// Частота памяти
-	cout << "Введите частоту памяти: " << endl;
+	// Р§Р°СЃС‚РѕС‚Р° РїР°РјСЏС‚Рё
+	cout << "Р’РІРµРґРёС‚Рµ С‡Р°СЃС‚РѕС‚Сѓ РїР°РјСЏС‚Рё: " << endl;
 	cin >> memoryFrequency;
 
-	// RGB - подсветка
-	cout << "Будет ли RGB - подсветка? (y - да, n - нет)\n> ";
+	// RGB - РїРѕРґСЃРІРµС‚РєР°
+	cout << "Р‘СѓРґРµС‚ Р»Рё RGB - РїРѕРґСЃРІРµС‚РєР°? (y - РґР°, n - РЅРµС‚)\n> ";
 	cin >> buff;
 
 	if (buff == "y") {
 		RGB_Backlight = true;
 	}
 
-	// Цена
-	cout << "Введите цену: ";
+	// Р¦РµРЅР°
+	cout << "Р’РІРµРґРёС‚Рµ С†РµРЅСѓ: ";
 	cin >> price;
 }
 void RAM::Print() const {
-	cout << "Компания: " << company << endl;
-	cout << "Модель: " << model << endl;
-	cout << "Тип подключения: " << memoryType << endl;
+	cout << "РљРѕРјРїР°РЅРёСЏ: " << company << endl;
+	cout << "РњРѕРґРµР»СЊ: " << model << endl;
+	cout << "РўРёРї РїРѕРґРєР»СЋС‡РµРЅРёСЏ: " << memoryType << endl;
 
-	cout << "Размер памяти: " << memory << endl;
-	cout << "Частота памяти: " << memoryFrequency << endl;
-	printf("RGD - подсветка: %s\n", RGB_Backlight == true ? "есть" : "нет");
-	cout << "Цена: " << price << endl;
+	cout << "Р Р°Р·РјРµСЂ РїР°РјСЏС‚Рё: " << memory << endl;
+	cout << "Р§Р°СЃС‚РѕС‚Р° РїР°РјСЏС‚Рё: " << memoryFrequency << endl;
+	printf("RGD - РїРѕРґСЃРІРµС‚РєР°: %s\n", RGB_Backlight == true ? "РµСЃС‚СЊ" : "РЅРµС‚");
+	cout << "Р¦РµРЅР°: " << price << endl;
 }
 
 
-// Геттеры
+// Р“РµС‚С‚РµСЂС‹
 char* RAM::GetCompany() const {
 	return company;
 }
@@ -151,7 +151,7 @@ bool RAM::GetRGB_Backlight() const {
 }
 
 
-// Сеттеры
+// РЎРµС‚С‚РµСЂС‹
 void RAM::SetCompany(const char* cp) {
 	if (cp != nullptr) {
 		cout << "Delate company -> " << this->company << endl;

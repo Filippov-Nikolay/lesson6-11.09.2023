@@ -1,6 +1,6 @@
-#pragma once
+п»ї#pragma once
 
-// Процессор
+// РџСЂРѕС†РµСЃСЃРѕСЂ
 class CPU {
 	char* company;
 	char* model;
@@ -9,19 +9,19 @@ class CPU {
 	int numberOfCores;
 	int price;
 public:
-	// Конструкторы/Деструктор
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	CPU();
 	CPU(const char*, const char*, const char*, int, int);
 	~CPU();
 
-	// Глубокое копирование
+	// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 	CPU(const CPU&);
 
 	void Input();
 	void Print() const;
 
-	// Аксессоры
-	// Геттеры
+	// РђРєСЃРµСЃСЃРѕСЂС‹
+	// Р“РµС‚С‚РµСЂС‹
 	char* GetCompany() const;
 	char* GetModel() const;
 	char* GetConnectorType() const;
@@ -30,7 +30,7 @@ public:
 	int GetPrice() const;
 
 
-	// Сеттеры
+	// РЎРµС‚С‚РµСЂС‹
 	void SetCompany(const char*);
 	void SetModel(const char*);
 	void SetConnectorType(const char*);

@@ -1,6 +1,6 @@
-#pragma once
+п»ї#pragma once
 
-// Видеокарта
+// Р’РёРґРµРѕРєР°СЂС‚Р°
 class GPU {
 	char* company;
 	char* model;
@@ -9,19 +9,19 @@ class GPU {
 	int videoMemory;
 	int price;
 public:
-	// Конструкторы/Деструктор
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	GPU();
 	GPU(const char*, const char*, const char*, int, int);
 	~GPU();
 
-	// Глубокое копирование
+	// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 	GPU(const GPU&);
 
 	void Input();
 	void Print() const;
 
-	// Аксессоры
-	// Геттеры
+	// РђРєСЃРµСЃСЃРѕСЂС‹
+	// Р“РµС‚С‚РµСЂС‹
 	char* GetCompany() const;
 	char* GetModel() const;
 	char* GetMemoryType() const;
@@ -30,7 +30,7 @@ public:
 	int GetPrice() const;
 
 
-	// Сеттеры
+	// РЎРµС‚С‚РµСЂС‹
 	void SetCompany(const char*);
 	void SetModel(const char*);
 	void SetMemoryType(const char*);

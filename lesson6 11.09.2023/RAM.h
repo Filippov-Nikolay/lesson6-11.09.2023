@@ -1,6 +1,6 @@
-#pragma once
+п»ї#pragma once
 
-// Оперативная память
+// РћРїРµСЂР°С‚РёРІРЅР°СЏ РїР°РјСЏС‚СЊ
 class RAM {
 	char* company;
 	char* model;
@@ -12,19 +12,19 @@ class RAM {
 
 	bool RGB_Backlight;
 public:
-	// Конструкторы/Деструктор
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	RAM();
 	RAM(const char*, const char*, const char*, int, int, int, bool);
 	~RAM();
 
-	// Глубокое копирование
+	// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 	RAM(const RAM&);
 
 	void Input();
 	void Print() const;
 
-	// Аксессоры
-	// Геттеры
+	// РђРєСЃРµСЃСЃРѕСЂС‹
+	// Р“РµС‚С‚РµСЂС‹
 	char* GetCompany() const;
 	char* GetModel() const;
 	char* GetMemoryType() const;
@@ -36,7 +36,7 @@ public:
 	bool GetRGB_Backlight() const;
 
 
-	// Сеттеры
+	// РЎРµС‚С‚РµСЂС‹
 	void SetCompany(const char*);
 	void SetModel(const char*);
 	void SetMemoryType(const char*);

@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "SSD.h"
 
 using namespace std;
@@ -6,7 +6,7 @@ using namespace std;
 // cp - company, md - model, ff - formFactor, ct - connectorType
 // me - memory, rs - readingSpeed, ws - writeSpeed, pr - price
 
-// Конструкторы/Деструктор
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 SSD::SSD() {
 	company = nullptr;
 	model = nullptr;
@@ -45,7 +45,7 @@ SSD::~SSD() {
 	delete[] connectorType;
 }
 
-// Глубокое копирование
+// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 SSD::SSD(const SSD& obj) {
 	company = new char[strlen(company) + 1];
 	strcpy_s(company, strlen(obj.company) + 1, obj.company);
@@ -68,8 +68,8 @@ SSD::SSD(const SSD& obj) {
 void SSD::Input() {
 	char buff[100];
 
-	// Компания
-	cout << "Введите компанию: ";
+	// РљРѕРјРїР°РЅРёСЏ
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕРјРїР°РЅРёСЋ: ";
 	cin >> buff;
 	if (company != nullptr) {
 		cout << "Delate company -> " << company << endl << endl;
@@ -78,8 +78,8 @@ void SSD::Input() {
 	company = new char[strlen(buff) + 1];
 	strcpy_s(company, strlen(buff) + 1, buff);
 
-	// Модель
-	cout << "Введите модель: ";
+	// РњРѕРґРµР»СЊ
+	cout << "Р’РІРµРґРёС‚Рµ РјРѕРґРµР»СЊ: ";
 	cin >> buff;
 	if (model != nullptr) {
 		cout << "Delate model -> " << model << endl << endl;
@@ -88,8 +88,8 @@ void SSD::Input() {
 	model = new char[strlen(buff) + 1];
 	strcpy_s(model, strlen(buff) + 1, buff);
 
-	// Форм-фактор
-	cout << "Введите форм-фактор: ";
+	// Р¤РѕСЂРј-С„Р°РєС‚РѕСЂ
+	cout << "Р’РІРµРґРёС‚Рµ С„РѕСЂРј-С„Р°РєС‚РѕСЂ: ";
 	cin >> buff;
 	if (formFactor != nullptr) {
 		cout << "Delate formFactor -> " << formFactor << endl << endl;
@@ -98,8 +98,8 @@ void SSD::Input() {
 	formFactor = new char[strlen(buff) + 1];
 	strcpy_s(formFactor, strlen(buff) + 1, buff);
 
-	// Тип подключения
-	cout << "Введите тип подключения: ";
+	// РўРёРї РїРѕРґРєР»СЋС‡РµРЅРёСЏ
+	cout << "Р’РІРµРґРёС‚Рµ С‚РёРї РїРѕРґРєР»СЋС‡РµРЅРёСЏ: ";
 	cin >> buff;
 	if (connectorType != nullptr) {
 		cout << "Delate connectorType -> " << connectorType << endl << endl;
@@ -108,36 +108,36 @@ void SSD::Input() {
 	connectorType = new char[strlen(buff) + 1];
 	strcpy_s(connectorType, strlen(buff) + 1, buff);
 
-	// Размер памяти
-	cout << "Введите размер памяти: ";
+	// Р Р°Р·РјРµСЂ РїР°РјСЏС‚Рё
+	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РїР°РјСЏС‚Рё: ";
 	cin >> memory;
 
-	// Скорость чтения
-	cout << "Введите скорость чтения: ";
+	// РЎРєРѕСЂРѕСЃС‚СЊ С‡С‚РµРЅРёСЏ
+	cout << "Р’РІРµРґРёС‚Рµ СЃРєРѕСЂРѕСЃС‚СЊ С‡С‚РµРЅРёСЏ: ";
 	cin >> readingSpeed;
 
-	// Скорость записи
-	cout << "Введите скорость записи: ";
+	// РЎРєРѕСЂРѕСЃС‚СЊ Р·Р°РїРёСЃРё
+	cout << "Р’РІРµРґРёС‚Рµ СЃРєРѕСЂРѕСЃС‚СЊ Р·Р°РїРёСЃРё: ";
 	cin >> writeSpeed;
 
-	// Цена
-	cout << "Введите цену: ";
+	// Р¦РµРЅР°
+	cout << "Р’РІРµРґРёС‚Рµ С†РµРЅСѓ: ";
 	cin >> price;
 }
 void SSD::Print() const {
-	cout << "Компания: " << company << endl;
-	cout << "Модель: " << model << endl;
-	cout << "Форм-фактор: " << formFactor << endl;
-	cout << "Тип подключения: " << connectorType << endl;
+	cout << "РљРѕРјРїР°РЅРёСЏ: " << company << endl;
+	cout << "РњРѕРґРµР»СЊ: " << model << endl;
+	cout << "Р¤РѕСЂРј-С„Р°РєС‚РѕСЂ: " << formFactor << endl;
+	cout << "РўРёРї РїРѕРґРєР»СЋС‡РµРЅРёСЏ: " << connectorType << endl;
 
-	cout << "Размер памяти: " << memory << endl;
-	cout << "Скорость чтения: " << readingSpeed << endl;
-	cout << "Скорость запси: " << writeSpeed << endl;
-	cout << "Цена: " << price << endl;
+	cout << "Р Р°Р·РјРµСЂ РїР°РјСЏС‚Рё: " << memory << endl;
+	cout << "РЎРєРѕСЂРѕСЃС‚СЊ С‡С‚РµРЅРёСЏ: " << readingSpeed << endl;
+	cout << "РЎРєРѕСЂРѕСЃС‚СЊ Р·Р°РїСЃРё: " << writeSpeed << endl;
+	cout << "Р¦РµРЅР°: " << price << endl;
 }
 
 
-// Геттеры
+// Р“РµС‚С‚РµСЂС‹
 char* SSD::GetCompany() const {
 	return company;
 }
@@ -164,7 +164,7 @@ int SSD::GetPrice() const {
 }
 
 
-// Сеттеры
+// РЎРµС‚С‚РµСЂС‹
 void SSD::SetCompany(const char* cp) {
 	if (cp != nullptr) {
 		cout << "Delate company -> " << this->company << endl;

@@ -1,6 +1,6 @@
-#pragma once
+п»ї#pragma once
 
-// Твердотельный накопитель
+// РўРІРµСЂРґРѕС‚РµР»СЊРЅС‹Р№ РЅР°РєРѕРїРёС‚РµР»СЊ
 class SSD {
 	char* company;
 	char* model;
@@ -12,19 +12,19 @@ class SSD {
 	int writeSpeed;
 	int price;
 public:
-	// Конструкторы/Деструктор
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	SSD();
 	SSD(const char*, const char*, const char*, const char*, int, int, int, int);
 	~SSD();
 
-	// Глубокое копирование
+	// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 	SSD(const SSD&);
 
 	void Input();
 	void Print() const;
 
-	// Аксессоры
-	// Геттеры
+	// РђРєСЃРµСЃСЃРѕСЂС‹
+	// Р“РµС‚С‚РµСЂС‹
 	char* GetCompany() const;
 	char* GetModel() const;
 	char* GetFormFactor() const;
@@ -36,7 +36,7 @@ public:
 	int GetPrice() const;
 
 
-	// Сеттеры
+	// РЎРµС‚С‚РµСЂС‹
 	void SetCompany(const char*);
 	void SetModel(const char*);
 	void SetFormFactor(const char*);
