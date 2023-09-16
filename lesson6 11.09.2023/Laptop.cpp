@@ -195,6 +195,8 @@ void Laptop::FullPrint() const {
 	cout << "SSD-накопитель: " << endl;
 	ssd.Print();
 	cout << endl;
+
+	cout << "Цена ноутбука: " << price << endl;
 }
 void Laptop::PrintInfoNumberOfLaptops() const {
 	cout << "Кол-во ноутбуков: " << numberOfLaptops << endl;

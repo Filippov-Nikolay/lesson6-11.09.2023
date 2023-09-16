@@ -64,6 +64,7 @@ RAM::RAM(const RAM& obj) {
 
 void RAM::Input() {
 	char buff[100];
+	char log;
 
 	// Компания
 	cout << "Введите компанию: ";
@@ -96,20 +97,25 @@ void RAM::Input() {
 	strcpy_s(memoryType, strlen(buff) + 1, buff);
 
 	// Размер памяти
-	cout << "Введите размер памяти: ";
+	cout << "Введите размер памяти (GB): ";
 	cin >> memory;
 
 	// Частота памяти
-	cout << "Введите частоту памяти: " << endl;
+	cout << "Введите частоту памяти: ";
 	cin >> memoryFrequency;
 
 	// RGB - подсветка
-	cout << "Будет ли RGB - подсветка? (y - да, n - нет)\n> ";
-	cin >> buff;
+	do {
+		cout << "Будет ли RGB - подсветка? (y - да, n - нет)\n> ";
+		cin >> log;
 
-	if (buff == "y") {
-		RGB_Backlight = true;
-	}
+		if (log == 'y')
+			RGB_Backlight = true;
+		else if (log == 'n')
+			RGB_Backlight = false;
+		else
+			cout << "Вы ввели неверный символ!" << endl << endl;
+	} while (log != 'y' && log != 'n');
 
 	// Цена
 	cout << "Введите цену: ";
@@ -120,9 +126,9 @@ void RAM::Print() const {
 	cout << "Модель: " << model << endl;
 	cout << "Тип подключения: " << memoryType << endl;
 
-	cout << "Размер памяти: " << memory << endl;
+	cout << "Размер памяти: " << memory << "GB" << endl;
 	cout << "Частота памяти: " << memoryFrequency << endl;
-	printf("RGD - подсветка: %s\n", RGB_Backlight == true ? "есть" : "нет");
+	printf("RGD - подсветка: %s\n", RGB_Backlight == true ? "присутствует" : "отсутствует");
 	cout << "Цена: " << price << endl;
 }
 

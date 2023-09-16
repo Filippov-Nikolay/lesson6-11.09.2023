@@ -109,7 +109,7 @@ void SSD::Input() {
 	strcpy_s(connectorType, strlen(buff) + 1, buff);
 
 	// Размер памяти
-	cout << "Введите размер памяти: ";
+	cout << "Введите размер памяти (GB): ";
 	cin >> memory;
 
 	// Скорость чтения
@@ -130,7 +130,7 @@ void SSD::Print() const {
 	cout << "Форм-фактор: " << formFactor << endl;
 	cout << "Тип подключения: " << connectorType << endl;
 
-	cout << "Размер памяти: " << memory << endl;
+	cout << "Размер памяти: " << memory << "GB" << endl;
 	cout << "Скорость чтения: " << readingSpeed << endl;
 	cout << "Скорость запси: " << writeSpeed << endl;
 	cout << "Цена: " << price << endl;

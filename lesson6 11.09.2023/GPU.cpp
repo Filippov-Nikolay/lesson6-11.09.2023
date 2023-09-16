@@ -74,7 +74,7 @@ void GPU::Input() {
 	strcpy_s(model, strlen(buff) + 1, buff);
 
 	// Тип подключения
-	cout << "Введите тип подключения: ";
+	cout << "Введите тип памяти: ";
 	cin >> buff;
 	if (memoryType != nullptr) {
 		cout << "Delate memoryType -> " << memoryType << endl << endl;
@@ -94,7 +94,7 @@ void GPU::Input() {
 void GPU::Print() const {
 	cout << "Компания: " << company << endl;
 	cout << "Модель: " << model << endl;
-	cout << "Тип подключения: " << memoryType << endl;
+	cout << "Тип памяти: " << memoryType << endl;
 	cout << "Кол-во ядер: " << videoMemory << endl;
 	cout << "Цена: " << price << endl;
 }

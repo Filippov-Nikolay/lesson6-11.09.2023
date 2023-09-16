@@ -1,14 +1,11 @@
 ﻿#include <iostream>
 #include "Laptop.h"
-#include "CPU.h"
 
 using namespace std;
 
 int main() {
     system("chcp 1251");
     setlocale(0, "");
-
-    cout << "Hello World!\n";
 
     Laptop laptop("Intel", "i5-11", "ACH15", 8, 15000, 
         "Nvidia", "RTX 4060", "PCIex6", 16, 50000, 
