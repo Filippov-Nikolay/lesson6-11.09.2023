@@ -143,7 +143,7 @@ void GPU::SetMemoryType(const char* mt) {
 	memoryType = new char[strlen(mt) + 1];
 	strcpy_s(memoryType, strlen(mt) + 1, mt);
 }
-void GPU::SetMemory(int vm) {
+void GPU::SetVideoMemory(int vm) {
 	videoMemory = vm;
 }
 void GPU::SetPrice(int pr) {

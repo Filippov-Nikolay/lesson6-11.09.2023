@@ -34,6 +34,9 @@ public:
 	Laptop(const char*, const char*, const char*, int);
 	~Laptop();
 
+	// Глубокое копирование
+	Laptop(const Laptop&);
+
 	void Input();
 	void InputCPU();
 	void InputGPU();

@@ -37,4 +37,7 @@ public:
 
 	void SetNumberOfCores(int);
 	void SetPrice(int);
+
+
+	void SetSompanyDynamicArray(const char*);
 };

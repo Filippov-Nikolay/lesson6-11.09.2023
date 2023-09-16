@@ -49,6 +49,27 @@ CPU::CPU(const CPU& obj) {
 	price = obj.price;
 }
 
+/*
+CPU::CPU(const char* cp, const char* md, const char* ct, int noc, int pr)
+	: company(nullptr), model(nullptr), connectorType(nullptr) {
+	SetCompany(cp);
+	SetModel(md);
+	SetConnectorType(ct);
+	SetNumberOfCores(noc);
+	SetPrice(pr);
+}
+
+
+// Конструктор копирования для глубокого копирования
+CPU::CPU(const CPU& other)
+	: company(nullptr), model(nullptr), connectorType(nullptr) {
+	SetCompany(other.company);
+	SetModel(other.model);
+	SetConnectorType(other.connectorType);
+	SetNumberOfCores(other.numCores);
+	SetPrice(other.price);
+}
+*/
 
 void CPU::Input() {
 	char buff[100];
@@ -149,4 +170,11 @@ void CPU::SetNumberOfCores(int noc) {
 }
 void CPU::SetPrice(int pr) {
 	price = pr;
+}
+
+
+void CPU::SetSompanyDynamicArray(const char* cp) {
+	delete[] company;
+	company = new char[strlen(cp) + 1];
+	strcpy_s(company, strlen(cp) + 1, cp);
 }

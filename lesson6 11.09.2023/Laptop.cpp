@@ -61,17 +61,33 @@ Laptop::Laptop(const char* cp, const char* md, const char* cl, int pr) : Laptop(
 	price = pr;
 	++numberOfLaptops;
 }
-
-//Laptop::Laptop(const char* cp, const char* md, const char* ct, int noc, int pr) :cpu(cp, md, ct, noc, pr) {
-//	cout << "Initialization by 5 param - CPU" << endl;
-//}
-
 Laptop::~Laptop() {
 	delete[] company;
 	delete[] model;
 	delete[] color;
 
 	--numberOfLaptops;
+}
+
+
+// Глубокое копирование
+Laptop::Laptop(const Laptop& obj):
+	cpu(obj.cpu.GetCompany(), obj.cpu.GetModel(), obj.cpu.GetConnectorType(), obj.cpu.GetNumberOfCores(), obj.cpu.GetPrice()),
+	gpu(obj.gpu.GetCompany(), obj.gpu.GetModel(), obj.gpu.GetMemoryType(), obj.gpu.GetVideoMemory(), obj.gpu.GetPrice()),
+	ram(obj.ram.GetCompany(), obj.ram.GetCompany(), obj.ram.GetMemoryType(), obj.ram.GetMemory(), obj.ram.GetMemoryFrequency(), obj.ram.GetPrice(), obj.ram.GetRGB_Backlight()),
+	ssd(obj.ssd.GetCompany(), obj.ssd.GetModel(), obj.ssd.GetFormFactor(), obj.ssd.GetConnectorType(), obj.ssd.GetMemory(), obj.ssd.GetReadingSpeed(), obj.ssd.GetWriteSpeed(), obj.ssd.GetPrice()) {
+
+	// Laptop
+	company = new char[strlen(obj.company) + 1];
+	strcpy_s(this->company, strlen(obj.company) + 1, obj.company);
+
+	model = new char[strlen(obj.model) + 1];
+	strcpy_s(model, strlen(obj.model) + 1, obj.model);
+
+	color = new char[strlen(obj.color) + 1];
+	strcpy_s(color, strlen(obj.color) + 1, obj.color);
+
+	price = obj.price;
 }
 
 

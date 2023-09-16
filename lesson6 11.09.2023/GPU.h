@@ -35,7 +35,7 @@ public:
 	void SetModel(const char*);
 	void SetMemoryType(const char*);
 
-	void SetMemory(int);
+	void SetVideoMemory(int);
 	void SetPrice(int);
 };
 
