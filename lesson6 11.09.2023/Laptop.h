@@ -1,11 +1,11 @@
-#pragma once
+п»ї#pragma once
 
 #include "CPU.h"
 #include "GPU.h"
 #include "RAM.h"
 #include "SSD.h"
 
-// Ноутбук
+// РќРѕСѓС‚Р±СѓРє
 class Laptop {
 	CPU cpu;
 	GPU gpu;
@@ -18,10 +18,10 @@ class Laptop {
 
 	int price;
 
-	// Статическое поле
+	// РЎС‚Р°С‚РёС‡РµСЃРєРѕРµ РїРѕР»Рµ
 	static unsigned int numberOfLaptops;
 public:
-	// Конструкторы/Деструктор
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	Laptop();
 	Laptop(const char* cpuCompany, const char* cpuModel, const char* cpuConntectorType, int cpuNumberOfCores, int cpuPrice,
 		const char* gpuCompany, const char* gpuModel, const char* gpuMemoryType, int gpuVideoMemory, int gpuPrice,
@@ -34,7 +34,7 @@ public:
 	Laptop(const char*, const char*, const char*, int);
 	~Laptop();
 
-	// Глубокое копирование
+	// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 	Laptop(const Laptop&);
 
 	void Input();
@@ -51,8 +51,8 @@ public:
 	void PrintRAM() const;
 	void PrintSSD() const;
 
-	// Аксессоры
-	// Геттеры
+	// РђРєСЃРµСЃСЃРѕСЂС‹
+	// Р“РµС‚С‚РµСЂС‹
 	char* GetCompany() const;
 	char* GetModel() const;
 	char* GetColor() const;
@@ -60,7 +60,7 @@ public:
 	int GetPrice() const;
 
 
-	// Сеттеры
+	// РЎРµС‚С‚РµСЂС‹
 	void SetCompany(const char*);
 	void SetModel(const char*);
 	void SetColor(const char*);
