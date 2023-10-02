@@ -4,6 +4,11 @@
 #include "GPU.h"
 #include "RAM.h"
 #include "SSD.h"
+#include "Touchpad.h"
+#include "Monitor.h"
+#include "Keyboard.h"
+#include "FlashDrive.h"
+#include "ComputerMouse.h"
 
 // Ноутбук
 class Laptop {
@@ -11,6 +16,11 @@ class Laptop {
 	GPU gpu;
 	RAM ram;
 	SSD ssd;
+	Touchpad touchpad;
+	Monitor monitor;
+	Keyboard keyboard;
+	FlashDrive flashDrive;
+	ComputerMouse computerMouse;
 
 	char* company;
 	char* model;
@@ -27,6 +37,11 @@ public:
 		const char* gpuCompany, const char* gpuModel, const char* gpuMemoryType, int gpuVideoMemory, int gpuPrice,
 		const char* ramCompany, const char* ramModel, const char* ramMemoryType, int ramMemory, int ramMemoryFrequency, int ramPrice, bool ramRGB_Backlight,
 		const char* ssdCompany, const char* ssdModel, const char* ssdFormFactor, const char* ssdConnetcorPrice, int ssdMemory, int ssdReadingSpeed, int ssdWriteSpeed, int ssdPrice,
+		const char* touchpadCompany, const char* touchpadModel, const char* touchpadColor, int touchpadWidth, int touchpadHeight, int touchpadPrice,
+		const char* monitorCompany, const char* monitorModel, const char* monitorMatrix, int monitorDiagonal, int monitorMonitorFrequency, int monitorPrice,
+		const char* keyboardCompany, const char* keyboardModel, double keyboardResponseTime, int keyboardPrice, bool keyboardRGB_Backlight,
+		const char* flashDriveCompany, const char* flashDriveModel, const char* flashDriveUSB_Interface, int flashDriveMemory, int flashDriveReadingSpeed, int flashDriveWriteSpeed, int flashDrivePrice,
+		const char* computerMouseCompany, const char* computerMouseModel, const char* computerMouseUSB_Inf, int computerMouseNumberOfButtons, int computerMouseResponseTime, int computerMousePrice, bool computerMouseRGB_Backlight,
 		const char* leptopCompany, const char* leptopModel, const char* leptopColor);
 	Laptop(const char*);
 	Laptop(const char*, const char*);
@@ -42,6 +57,12 @@ public:
 	void InputGPU();
 	void InputRAM();
 	void InputSSD();
+	void InputTouchpad();
+	void InputMonitor();
+	void InputKeyboard();
+	void InputFlashDrive();
+	void InputComputerMouse();
+
 
 	void Print() const;
 	void FullPrint() const;
@@ -50,6 +71,12 @@ public:
 	void PrintGPU() const;
 	void PrintRAM() const;
 	void PrintSSD() const;
+	void PrintTouchpad() const;
+	void PrintMonitor() const;
+	void PrintKeyboard() const;
+	void PrintFlashDrive() const;
+	void PrintComputerMouse() const;
+
 
 	// Аксессоры
 	// Геттеры

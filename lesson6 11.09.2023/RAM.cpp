@@ -133,6 +133,7 @@ void RAM::Print() const {
 }
 
 
+// Аксессоры
 // Геттеры
 char* RAM::GetCompany() const {
 	return company;
