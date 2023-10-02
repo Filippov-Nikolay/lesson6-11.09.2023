@@ -17,7 +17,7 @@ ComputerMouse::ComputerMouse() {
 
 	RGB_Backlight = false;
 }
-ComputerMouse::ComputerMouse(const char* cp, const char* md, const char* USB_Inf, int nofb, int rt, int pr, bool RGB_bl) {
+ComputerMouse::ComputerMouse(const char* cp, const char* md, const char* USB_Inf, int nofb, double rt, int pr, bool RGB_bl) {
 	cout << "Constructor 7 params" << endl;
 
 	company = new char[strlen(cp) + 1];

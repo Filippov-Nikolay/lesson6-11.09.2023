@@ -7,6 +7,8 @@
 #include "Touchpad.h"
 #include "Monitor.h"
 #include "Keyboard.h"
+#include "FlashDrive.h"
+#include "ComputerMouse.h"
 
 using namespace std;
 
@@ -28,8 +30,8 @@ Laptop::Laptop(const char* cpuCompany, const char* cpuModel, const char* cpuConn
 	const char* touchpadCompany, const char* touchpadModel, const char* touchpadColor, int touchpadWidth, int touchpadHeight, int touchpadPrice,
 	const char* monitorCompany, const char* monitorModel, const char* monitorMatrix, int monitorDiagonal, int monitorMonitorFrequency, int monitorPrice,
 	const char* keyboardCompany, const char* keyboardModel, double keyboardResponseTime, int keyboardPrice, bool keyboardRGB_Backlight,
-	const char* flashDriveCompany, const char* flashDriveModel, const char* flashDriveUSB_Interface, int flashDriveMemory, int flashDriveReadingSpeed, int flashDriveWriteSpeed, int flashDrivePrice,
-	const char* computerMouseCompany, const char* computerMouseModel, const char* computerMouseUSB_Inf, int computerMouseNumberOfButtons, int computerMouseResponseTime, int computerMousePrice, bool computerMouseRGB_Backlight,
+	FlashDrive* flashDrive,
+	ComputerMouse* computerMouse,
 	const char* leptopCompany, const char* leptopModel, const char* leptopColor) :
 	cpu(cpuCompany, cpuModel, cpuConntectorType, cpuNumberOfCores, cpuPrice),
 	gpu(gpuCompany, gpuModel, gpuMemoryType, gpuVideoMemory, gpuPrice),
@@ -38,8 +40,8 @@ Laptop::Laptop(const char* cpuCompany, const char* cpuModel, const char* cpuConn
 	touchpad(touchpadCompany, touchpadModel, touchpadColor, touchpadWidth, touchpadHeight, touchpadPrice),
 	monitor(monitorCompany, monitorModel, monitorMatrix, monitorDiagonal, monitorMonitorFrequency, monitorPrice),
 	keyboard(keyboardCompany, keyboardModel, keyboardResponseTime, keyboardPrice, keyboardRGB_Backlight),
-	flashDrive(flashDriveCompany, flashDriveModel, flashDriveUSB_Interface, flashDriveMemory, flashDriveReadingSpeed, flashDriveWriteSpeed, flashDrivePrice),
-	computerMouse(computerMouseCompany, computerMouseModel, computerMouseUSB_Inf, computerMouseNumberOfButtons, computerMouseResponseTime, computerMousePrice, computerMouseRGB_Backlight) {
+	flashDrive(flashDrive),
+	computerMouse(computerMouse) {
 		cout << "Full initialization by 10 class: CPU, GPU, RAM, SSD, touchpad, monitor, keyboard, flashDrive, computerMouse, laptop" << endl;
 
 		company = new char[strlen(leptopCompany) + 1];
@@ -51,7 +53,10 @@ Laptop::Laptop(const char* cpuCompany, const char* cpuModel, const char* cpuConn
 		color = new char[strlen(leptopColor) + 1];
 		strcpy_s(color, strlen(leptopColor) + 1, leptopColor);
 
-		price += cpuPrice += gpuPrice += ramPrice += ssdPrice += touchpadPrice += monitorPrice += keyboardPrice += flashDrivePrice += computerMousePrice;
+		int temp = flashDrive->GetPrice();
+		temp += computerMouse->GetPrice();
+
+		price += cpuPrice += gpuPrice += ramPrice += ssdPrice += touchpadPrice += monitorPrice += keyboardPrice += temp;
 }
 
 // Делегирование
@@ -91,8 +96,8 @@ Laptop::Laptop(const Laptop& obj):
 	touchpad(obj.touchpad.GetCompany(), obj.touchpad.GetModel(), obj.touchpad.GetColor(), obj.touchpad.GetWight(), obj.touchpad.GetHeight(), obj.touchpad.GetPrice()),
 	monitor(obj.monitor.GetCompany(), obj.monitor.GetModel(), obj.monitor.GetMatrix(), obj.monitor.GetDiagonal(), obj.monitor.GetMonitorFrequency(), obj.monitor.GetPrice()),
 	keyboard(obj.keyboard.GetCompany(), obj.keyboard.GetModel(), obj.keyboard.GetResponseTime(), obj.keyboard.GetPrice(), obj.keyboard.GetRGB_Backlight()),
-	flashDrive(obj.flashDrive.GetCompany(), obj.flashDrive.GetModel(), obj.flashDrive.GetUSB_Interface(), obj.flashDrive.GetMemory(), obj.flashDrive.GetReadingSpeed(), obj.flashDrive.GetWriteSpeed(), obj.flashDrive.GetPrice()),
-	computerMouse(obj.computerMouse.GetCompany(), obj.computerMouse.GetModel(), obj.computerMouse.GetUSB_Interface(), obj.computerMouse.GetNumberOfButtons(), obj.computerMouse.GetResponseTime(), obj.computerMouse.GetPrice(), obj.computerMouse.GetRGB_Backlight()) {
+	flashDrive(obj.flashDrive),
+	computerMouse(obj.computerMouse) {
 
 	// Laptop
 	company = new char[strlen(obj.company) + 1];
@@ -144,12 +149,12 @@ void Laptop::Input() {
 
 	// USB флешка
 	cout << "Ввод данных о USB флешке: " << endl;
-	flashDrive.Input();
+	flashDrive->Input();
 	cout << endl << endl;
 
 	// Компьютерная мышь
 	cout << "Ввод данных о Компьютерной мыши: " << endl;
-	computerMouse.Input();
+	computerMouse->Input();
 	cout << endl << endl;
 
 	// Компания
@@ -198,8 +203,8 @@ void Laptop::InputSSD() { ssd.Input(); }
 void Laptop::InputTouchpad() { touchpad.Input(); }
 void Laptop::InputMonitor() { monitor.Input(); }
 void Laptop::InputKeyboard() { keyboard.Input(); }
-void Laptop::InputFlashDrive() { flashDrive.Input(); }
-void Laptop::InputComputerMouse() { computerMouse.Input(); }
+void Laptop::InputFlashDrive() { flashDrive->Input(); }
+void Laptop::InputComputerMouse() { computerMouse->Input(); }
 
 
 void Laptop::Print() const {
@@ -244,11 +249,11 @@ void Laptop::FullPrint() const {
 	cout << endl;
 
 	cout << "USB флешка: " << endl;
-	flashDrive.Print();
+	flashDrive->Print();
 	cout << endl;
 
 	cout << "Компьютерная мышь: " << endl;
-	computerMouse.Print();
+	computerMouse->Print();
 	cout << endl;
 
 	cout << "Цена ноутбука: " << price << endl;
@@ -263,8 +268,8 @@ void Laptop::PrintSSD() const { ssd.Print(); }
 void Laptop::PrintTouchpad() const { touchpad.Print(); }
 void Laptop::PrintMonitor() const { monitor.Print(); }
 void Laptop::PrintKeyboard() const { keyboard.Print(); }
-void Laptop::PrintFlashDrive() const { flashDrive.Print(); }
-void Laptop::PrintComputerMouse() const { computerMouse.Print(); }
+void Laptop::PrintFlashDrive() const { flashDrive->Print(); }
+void Laptop::PrintComputerMouse() const { computerMouse->Print(); }
 
 
 // Аксессоры

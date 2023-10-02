@@ -19,8 +19,8 @@ class Laptop {
 	Touchpad touchpad;
 	Monitor monitor;
 	Keyboard keyboard;
-	FlashDrive flashDrive;
-	ComputerMouse computerMouse;
+	FlashDrive* flashDrive;
+	ComputerMouse* computerMouse;
 
 	char* company;
 	char* model;
@@ -40,8 +40,8 @@ public:
 		const char* touchpadCompany, const char* touchpadModel, const char* touchpadColor, int touchpadWidth, int touchpadHeight, int touchpadPrice,
 		const char* monitorCompany, const char* monitorModel, const char* monitorMatrix, int monitorDiagonal, int monitorMonitorFrequency, int monitorPrice,
 		const char* keyboardCompany, const char* keyboardModel, double keyboardResponseTime, int keyboardPrice, bool keyboardRGB_Backlight,
-		const char* flashDriveCompany, const char* flashDriveModel, const char* flashDriveUSB_Interface, int flashDriveMemory, int flashDriveReadingSpeed, int flashDriveWriteSpeed, int flashDrivePrice,
-		const char* computerMouseCompany, const char* computerMouseModel, const char* computerMouseUSB_Inf, int computerMouseNumberOfButtons, int computerMouseResponseTime, int computerMousePrice, bool computerMouseRGB_Backlight,
+		FlashDrive* flashDriveCompany,
+		ComputerMouse* computerMouseCompany,
 		const char* leptopCompany, const char* leptopModel, const char* leptopColor);
 	Laptop(const char*);
 	Laptop(const char*, const char*);

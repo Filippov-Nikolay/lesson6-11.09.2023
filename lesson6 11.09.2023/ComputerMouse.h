@@ -12,7 +12,7 @@ class ComputerMouse {
 public:
 	// Конструкторы/Деструктор
 	ComputerMouse();
-	ComputerMouse(const char*, const char*, const char*, int, int, int, bool);
+	ComputerMouse(const char*, const char*, const char*, int, double, int, bool);
 	~ComputerMouse();
 
 	// Глубокое копирование
