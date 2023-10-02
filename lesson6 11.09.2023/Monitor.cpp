@@ -1,11 +1,11 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "Monitor.h"
 
 using namespace std;
 
 // cp - company, md - model, mt - matrix, dg - diagonal, mf - monitorFrequency, pr - price 
 
-// Конструкторы/Деструктор
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 Monitor::Monitor() {
 	company = nullptr;
 	model = nullptr;
@@ -37,7 +37,7 @@ Monitor::~Monitor() {
 	delete[] matrix;
 }
 
-// Глубокое копирование
+// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 Monitor::Monitor(const Monitor& obj) {
 	company = new char[strlen(company) + 1];
 	strcpy_s(company, strlen(obj.company) + 1, obj.company);
@@ -56,8 +56,8 @@ Monitor::Monitor(const Monitor& obj) {
 void Monitor::Input() {
 	char buff[100];
 
-	// Компания
-	cout << "Введите компанию: ";
+	// РљРѕРјРїР°РЅРёСЏ
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕРјРїР°РЅРёСЋ: ";
 	cin >> buff;
 	if (company != nullptr) {
 		cout << "Delate company -> " << company << endl << endl;
@@ -67,8 +67,8 @@ void Monitor::Input() {
 	strcpy_s(company, strlen(buff) + 1, buff);
 
 
-	// Модель
-	cout << "Введите модель: ";
+	// РњРѕРґРµР»СЊ
+	cout << "Р’РІРµРґРёС‚Рµ РјРѕРґРµР»СЊ: ";
 	cin >> buff;
 	if (model != nullptr) {
 		cout << "Delate model -> " << model << endl << endl;
@@ -78,8 +78,8 @@ void Monitor::Input() {
 	strcpy_s(model, strlen(buff) + 1, buff);
 
 
-	// Матрица
-	cout << "Введите тип матрицы: ";
+	// РњР°С‚СЂРёС†Р°
+	cout << "Р’РІРµРґРёС‚Рµ С‚РёРї РјР°С‚СЂРёС†С‹: ";
 	cin >> buff;
 	if (matrix != nullptr) {
 		cout << "Delate matrix -> " << matrix << endl << endl;
@@ -89,47 +89,47 @@ void Monitor::Input() {
 	strcpy_s(matrix, strlen(buff) + 1, buff);
 
 
-	// Диагональ
+	// Р”РёР°РіРѕРЅР°Р»СЊ
 	do {
-		cout << "Введите диагональ: ";
+		cout << "Р’РІРµРґРёС‚Рµ РґРёР°РіРѕРЅР°Р»СЊ: ";
 		cin >> diagonal;
 
 		if (diagonal <= 0 || diagonal >= 34)
-			cout << "Вы ввели неверную диагональ!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅСѓСЋ РґРёР°РіРѕРЅР°Р»СЊ!" << endl << endl;
 	} while (diagonal <= 0 || diagonal >= 34);
 
 
-	// Частота
+	// Р§Р°СЃС‚РѕС‚Р°
 	do {
-		cout << "Введите частоту обновления экрана: ";
+		cout << "Р’РІРµРґРёС‚Рµ С‡Р°СЃС‚РѕС‚Сѓ РѕР±РЅРѕРІР»РµРЅРёСЏ СЌРєСЂР°РЅР°: ";
 		cin >> monitorFrequency;
 
 		if (monitorFrequency != 60 && monitorFrequency != 90 && monitorFrequency != 120 && monitorFrequency != 144 && monitorFrequency != 240)
-			cout << "Вы ввели неверную диагональ!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅСѓСЋ РґРёР°РіРѕРЅР°Р»СЊ!" << endl << endl;
 	} while (monitorFrequency != 60 && monitorFrequency != 90 && monitorFrequency != 120 && monitorFrequency != 144 && monitorFrequency != 240);
 
 
-	// Цена 
+	// Р¦РµРЅР° 
 	do {
-		cout << "Введите цену: ";
+		cout << "Р’РІРµРґРёС‚Рµ С†РµРЅСѓ: ";
 		cin >> price;
 
 		if (price <= 0)
-			cout << "Вы ввели неверную цену!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅСѓСЋ С†РµРЅСѓ!" << endl << endl;
 	} while (price <= 0);
 }
 void Monitor::Print() const {
-	cout << "Компания: " << company << endl;
-	cout << "Модель: " << model << endl;
-	cout << "Матрица: " << matrix << endl;
-	cout << "Диагональ: " << diagonal << endl;
-	cout << "Частота монитора: " << monitorFrequency << endl;
-	cout << "Цена: " << price << endl;
+	cout << "РљРѕРјРїР°РЅРёСЏ: " << company << endl;
+	cout << "РњРѕРґРµР»СЊ: " << model << endl;
+	cout << "РњР°С‚СЂРёС†Р°: " << matrix << endl;
+	cout << "Р”РёР°РіРѕРЅР°Р»СЊ: " << diagonal << endl;
+	cout << "Р§Р°СЃС‚РѕС‚Р° РјРѕРЅРёС‚РѕСЂР°: " << monitorFrequency << endl;
+	cout << "Р¦РµРЅР°: " << price << endl;
 }
 
 
-// Аксессоры
-// Геттеры
+// РђРєСЃРµСЃСЃРѕСЂС‹
+// Р“РµС‚С‚РµСЂС‹
 char* Monitor::GetCompany() const { return company; }
 char* Monitor::GetModel() const { return model; }
 char* Monitor::GetMatrix() const { return matrix; }
@@ -139,7 +139,7 @@ int Monitor::GetMonitorFrequency() const { return monitorFrequency; }
 int Monitor::GetPrice() const { return price; }
 
 
-// Сеттеры
+// РЎРµС‚С‚РµСЂС‹
 void Monitor::SetCompany(const char* cp) {
 	if (cp != nullptr) {
 		cout << "Delate company -> " << this->company << endl;

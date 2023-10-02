@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 class Keyboard {
 	char* company;
 	char* model;
@@ -8,19 +8,19 @@ class Keyboard {
 
 	bool RGB_Backlight;
 public:
-	// Конструкторы/Деструктор
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	Keyboard();
 	Keyboard(const char*, const char*, double, int, bool);
 	~Keyboard();
 
-	// Глубокое копирование
+	// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 	Keyboard(const Keyboard&);
 
 	void Input();
 	void Print() const;
 
-	// Аксессоры
-	// Геттеры
+	// РђРєСЃРµСЃСЃРѕСЂС‹
+	// Р“РµС‚С‚РµСЂС‹
 	char* GetCompany() const;
 	char* GetModel() const;
 
@@ -30,7 +30,7 @@ public:
 	bool GetRGB_Backlight() const;
 
 
-	// Сеттеры
+	// РЎРµС‚С‚РµСЂС‹
 	void SetCompany(const char*);
 	void SetModel(const char*);
 

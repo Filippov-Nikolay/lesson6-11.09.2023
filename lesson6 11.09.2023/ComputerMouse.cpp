@@ -1,11 +1,11 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "ComputerMouse.h"
 
 using namespace std;
 
 // cp - company, md - model, USB_Inf - USB_Interface, nofb - numberOfButtons, rt - responseTime, pr - price, RGB_bl - RGB_Backlight
 
-// Конструкторы/Деструктор
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 ComputerMouse::ComputerMouse() {
 	company = nullptr;
 	model = nullptr;
@@ -41,7 +41,7 @@ ComputerMouse::~ComputerMouse() {
 	delete[] USB_Interface;
 }
 
-// Глубокое копирование
+// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 ComputerMouse::ComputerMouse(const ComputerMouse& obj) {
 	company = new char[strlen(company) + 1];
 	strcpy_s(company, strlen(obj.company) + 1, obj.company);
@@ -63,8 +63,8 @@ void ComputerMouse::Input() {
 	char buff[100];
 	char log;
 
-	// Компания
-	cout << "Введите компанию: ";
+	// РљРѕРјРїР°РЅРёСЏ
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕРјРїР°РЅРёСЋ: ";
 	cin >> buff;
 	if (company != nullptr) {
 		cout << "Delate company -> " << company << endl << endl;
@@ -74,8 +74,8 @@ void ComputerMouse::Input() {
 	strcpy_s(company, strlen(buff) + 1, buff);
 
 
-	// Модель
-	cout << "Введите модель: ";
+	// РњРѕРґРµР»СЊ
+	cout << "Р’РІРµРґРёС‚Рµ РјРѕРґРµР»СЊ: ";
 	cin >> buff;
 	if (model != nullptr) {
 		cout << "Delate model -> " << model << endl << endl;
@@ -85,8 +85,8 @@ void ComputerMouse::Input() {
 	strcpy_s(model, strlen(buff) + 1, buff);
 
 
-	// USB интерфейс
-	cout << "Введите USB интерфейс: ";
+	// USB РёРЅС‚РµСЂС„РµР№СЃ
+	cout << "Р’РІРµРґРёС‚Рµ USB РёРЅС‚РµСЂС„РµР№СЃ: ";
 	cin >> buff;
 	if (USB_Interface != nullptr) {
 		cout << "Delate USB_Interface -> " << USB_Interface << endl << endl;
@@ -96,37 +96,37 @@ void ComputerMouse::Input() {
 	strcpy_s(USB_Interface, strlen(buff) + 1, buff);
 
 
-	// Кол-во кнопок
+	// РљРѕР»-РІРѕ РєРЅРѕРїРѕРє
 	do {
-		cout << "Введите кол-во кнопок: ";
+		cout << "Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ РєРЅРѕРїРѕРє: ";
 		cin >> numberOfButtons;
 		if (numberOfButtons <= 3)
-			cout << "Вы ввели неверное кол-во кнопок!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅРѕРµ РєРѕР»-РІРѕ РєРЅРѕРїРѕРє!" << endl << endl;
 	} while (numberOfButtons <= 3);
 
 
-	// Время отклика
+	// Р’СЂРµРјСЏ РѕС‚РєР»РёРєР°
 	do {
-		cout << "Введите время отклика (мс): ";
+		cout << "Р’РІРµРґРёС‚Рµ РІСЂРµРјСЏ РѕС‚РєР»РёРєР° (РјСЃ): ";
 		cin >> responseTime;
 		if (responseTime <= 0)
-			cout << "Вы ввели неверное значение!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ!" << endl << endl;
 	} while (responseTime <= 0);
 
 
-	// Цена 
+	// Р¦РµРЅР° 
 	do {
-		cout << "Введите цену: ";
+		cout << "Р’РІРµРґРёС‚Рµ С†РµРЅСѓ: ";
 		cin >> price;
 
 		if (price <= 0)
-			cout << "Вы ввели неверную цену!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅСѓСЋ С†РµРЅСѓ!" << endl << endl;
 	} while (price <= 0);
 
 
-	// RGB - подсветка
+	// RGB - РїРѕРґСЃРІРµС‚РєР°
 	do {
-		cout << "Будет ли RGB - подсветка? (y - да, n - нет)\n> ";
+		cout << "Р‘СѓРґРµС‚ Р»Рё RGB - РїРѕРґСЃРІРµС‚РєР°? (y - РґР°, n - РЅРµС‚)\n> ";
 		cin >> log;
 
 		if (log == 'y')
@@ -134,22 +134,22 @@ void ComputerMouse::Input() {
 		else if (log == 'n')
 			RGB_Backlight = false;
 		else
-			cout << "Вы ввели неверный символ!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅС‹Р№ СЃРёРјРІРѕР»!" << endl << endl;
 	} while (log != 'y' && log != 'n');
 }
 void ComputerMouse::Print() const {
-	cout << "Компания: " << company << endl;
-	cout << "Модель: " << model << endl;
-	cout << "USB интерфейс: " << USB_Interface << endl;
-	cout << "Кол-во кнопок: " << numberOfButtons << endl;
-	cout << "Время отклика: " << responseTime << "мс." << endl;
-	printf("RGD - подсветка: %s\n", RGB_Backlight == true ? "присутствует" : "отсутствует");
-	cout << "Цена: " << price << endl;
+	cout << "РљРѕРјРїР°РЅРёСЏ: " << company << endl;
+	cout << "РњРѕРґРµР»СЊ: " << model << endl;
+	cout << "USB РёРЅС‚РµСЂС„РµР№СЃ: " << USB_Interface << endl;
+	cout << "РљРѕР»-РІРѕ РєРЅРѕРїРѕРє: " << numberOfButtons << endl;
+	cout << "Р’СЂРµРјСЏ РѕС‚РєР»РёРєР°: " << responseTime << "РјСЃ." << endl;
+	printf("RGD - РїРѕРґСЃРІРµС‚РєР°: %s\n", RGB_Backlight == true ? "РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚" : "РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚");
+	cout << "Р¦РµРЅР°: " << price << endl;
 }
 
 
-// Аксессоры
-// Геттеры
+// РђРєСЃРµСЃСЃРѕСЂС‹
+// Р“РµС‚С‚РµСЂС‹
 char* ComputerMouse::GetCompany() const { return company; }
 char* ComputerMouse::GetModel() const { return model; }
 char* ComputerMouse::GetUSB_Interface() const { return USB_Interface; }
@@ -161,7 +161,7 @@ int ComputerMouse::GetPrice() const { return price; }
 bool ComputerMouse::GetRGB_Backlight() const { return RGB_Backlight; }
 
 
-// Сеттеры
+// РЎРµС‚С‚РµСЂС‹
 void ComputerMouse::SetCompany(const char* cp) {
 	if (cp != nullptr) {
 		cout << "Delate company -> " << this->company << endl;

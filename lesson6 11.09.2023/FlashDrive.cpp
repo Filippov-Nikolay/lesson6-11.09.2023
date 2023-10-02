@@ -1,11 +1,11 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "FlashDrive.h"
 
 using namespace std;
 
 // cp - company, md - model, USB_Inf - USB_Interface, me - memory, rs - readingSpeed, ws - writeSpeed, pr - price
 
-// Конструкторы/Деструктор
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 FlashDrive::FlashDrive() {
 	company = nullptr;
 	model = nullptr;
@@ -39,7 +39,7 @@ FlashDrive::~FlashDrive() {
 	delete[] USB_Interface;
 }
 
-// Глубокое копирование
+// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 FlashDrive::FlashDrive(const FlashDrive& obj) {
 	company = new char[strlen(company) + 1];
 	strcpy_s(company, strlen(obj.company) + 1, obj.company);
@@ -60,8 +60,8 @@ FlashDrive::FlashDrive(const FlashDrive& obj) {
 void FlashDrive::Input() {
 	char buff[100];
 
-	// Компания
-	cout << "Введите компанию: ";
+	// РљРѕРјРїР°РЅРёСЏ
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕРјРїР°РЅРёСЋ: ";
 	cin >> buff;
 	if (company != nullptr) {
 		cout << "Delate company -> " << company << endl << endl;
@@ -71,8 +71,8 @@ void FlashDrive::Input() {
 	strcpy_s(company, strlen(buff) + 1, buff);
 
 
-	// Модель
-	cout << "Введите модель: ";
+	// РњРѕРґРµР»СЊ
+	cout << "Р’РІРµРґРёС‚Рµ РјРѕРґРµР»СЊ: ";
 	cin >> buff;
 	if (model != nullptr) {
 		cout << "Delate model -> " << model << endl << endl;
@@ -82,8 +82,8 @@ void FlashDrive::Input() {
 	strcpy_s(model, strlen(buff) + 1, buff);
 
 
-	// USB интерфейс
-	cout << "Введите USB интерфейс: ";
+	// USB РёРЅС‚РµСЂС„РµР№СЃ
+	cout << "Р’РІРµРґРёС‚Рµ USB РёРЅС‚РµСЂС„РµР№СЃ: ";
 	cin >> buff;
 	if (USB_Interface != nullptr) {
 		cout << "Delate USB_Interface -> " << USB_Interface << endl << endl;
@@ -93,58 +93,58 @@ void FlashDrive::Input() {
 	strcpy_s(USB_Interface, strlen(buff) + 1, buff);
 
 	
-	// Объём памяти 
+	// РћР±СЉС‘Рј РїР°РјСЏС‚Рё 
 	do {
-		cout << "Введите объём памяти: ";
+		cout << "Р’РІРµРґРёС‚Рµ РѕР±СЉС‘Рј РїР°РјСЏС‚Рё: ";
 		cin >> memory;
 
 		if (memory <= 0)
-			cout << "Вы ввели неверный объём памяти!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅС‹Р№ РѕР±СЉС‘Рј РїР°РјСЏС‚Рё!" << endl << endl;
 	} while (memory <= 0);
 
 
-	// Скорость чтения
+	// РЎРєРѕСЂРѕСЃС‚СЊ С‡С‚РµРЅРёСЏ
 	do {
-		cout << "Введите скорость чтения: ";
+		cout << "Р’РІРµРґРёС‚Рµ СЃРєРѕСЂРѕСЃС‚СЊ С‡С‚РµРЅРёСЏ: ";
 		cin >> readingSpeed;
 
 		if (readingSpeed <= 0)
-			cout << "Вы ввели неверную скорость чтения!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅСѓСЋ СЃРєРѕСЂРѕСЃС‚СЊ С‡С‚РµРЅРёСЏ!" << endl << endl;
 	} while (readingSpeed <= 0);
 
 
-	// Скорость записи
+	// РЎРєРѕСЂРѕСЃС‚СЊ Р·Р°РїРёСЃРё
 	do {
-		cout << "Введите скорость записи: ";
+		cout << "Р’РІРµРґРёС‚Рµ СЃРєРѕСЂРѕСЃС‚СЊ Р·Р°РїРёСЃРё: ";
 		cin >> writeSpeed;
 
 		if (writeSpeed <= 0)
-			cout << "Вы ввели неверную скорость записи!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅСѓСЋ СЃРєРѕСЂРѕСЃС‚СЊ Р·Р°РїРёСЃРё!" << endl << endl;
 	} while (writeSpeed <= 0);
 
 
-	// Цена 
+	// Р¦РµРЅР° 
 	do {
-		cout << "Введите цену: ";
+		cout << "Р’РІРµРґРёС‚Рµ С†РµРЅСѓ: ";
 		cin >> price;
 
 		if (price <= 0)
-			cout << "Вы ввели неверную цену!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅСѓСЋ С†РµРЅСѓ!" << endl << endl;
 	} while (price <= 0);
 }
 void FlashDrive::Print() const {
-	cout << "Компания: " << company << endl;
-	cout << "Модель: " << model << endl;
-	cout << "USB интерфейс: " << USB_Interface << endl;
-	cout << "Объём памяти: " << memory << endl;
-	cout << "Скорость чтения: " << readingSpeed << endl;
-	cout << "Скорость записи: " << readingSpeed << endl;
-	cout << "Цена: " << price << endl;
+	cout << "РљРѕРјРїР°РЅРёСЏ: " << company << endl;
+	cout << "РњРѕРґРµР»СЊ: " << model << endl;
+	cout << "USB РёРЅС‚РµСЂС„РµР№СЃ: " << USB_Interface << endl;
+	cout << "РћР±СЉС‘Рј РїР°РјСЏС‚Рё: " << memory << endl;
+	cout << "РЎРєРѕСЂРѕСЃС‚СЊ С‡С‚РµРЅРёСЏ: " << readingSpeed << endl;
+	cout << "РЎРєРѕСЂРѕСЃС‚СЊ Р·Р°РїРёСЃРё: " << readingSpeed << endl;
+	cout << "Р¦РµРЅР°: " << price << endl;
 }
 
 
-// Аксессоры
-// Геттеры
+// РђРєСЃРµСЃСЃРѕСЂС‹
+// Р“РµС‚С‚РµСЂС‹
 char* FlashDrive::GetCompany() const { return company; }
 char* FlashDrive::GetModel() const { return model; }
 char* FlashDrive::GetUSB_Interface() const { return USB_Interface; }
@@ -155,7 +155,7 @@ int FlashDrive::GetWriteSpeed() const { return writeSpeed; }
 int FlashDrive::GetPrice() const { return price; }
 
 
-// Сеттеры
+// РЎРµС‚С‚РµСЂС‹
 void FlashDrive::SetCompany(const char* cp) {
 	if (cp != nullptr) {
 		cout << "Delate company -> " << this->company << endl;

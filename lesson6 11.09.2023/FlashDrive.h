@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 class FlashDrive {
 	char* company;
 	char* model;
@@ -9,19 +9,19 @@ class FlashDrive {
 	int writeSpeed;
 	int price;
 public:
-	// Конструкторы/Деструктор
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	FlashDrive();
 	FlashDrive(const char*, const char*, const char*, int, int, int, int);
 	~FlashDrive();
 
-	// Глубокое копирование
+	// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 	FlashDrive(const FlashDrive&);
 
 	void Input();
 	void Print() const;
 
-	// Аксессоры
-	// Геттеры
+	// РђРєСЃРµСЃСЃРѕСЂС‹
+	// Р“РµС‚С‚РµСЂС‹
 	char* GetCompany() const;
 	char* GetModel() const;
 	char* GetUSB_Interface() const;
@@ -32,7 +32,7 @@ public:
 	int GetPrice() const;
 
 
-	// Сеттеры
+	// РЎРµС‚С‚РµСЂС‹
 	void SetCompany(const char*);
 	void SetModel(const char*);
 	void SetUSB_Interface(const char*);

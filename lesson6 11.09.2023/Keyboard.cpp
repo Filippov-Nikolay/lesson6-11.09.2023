@@ -1,11 +1,11 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "Keyboard.h"
 
 using namespace std;
 
 // cp - company, md - model, rt - responseTime, pr - price, RGB_bl - RGB_Backlight
 
-// Конструкторы/Деструктор
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 Keyboard::Keyboard() {
 	company = nullptr;
 	model = nullptr;
@@ -34,7 +34,7 @@ Keyboard::~Keyboard() {
 	delete[] model;
 }
 
-// Глубокое копирование
+// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 Keyboard::Keyboard(const Keyboard& obj) {
 	company = new char[strlen(company) + 1];
 	strcpy_s(company, strlen(obj.company) + 1, obj.company);
@@ -53,8 +53,8 @@ void Keyboard::Input() {
 	char buff[100];
 	char log;
 
-	// Компания
-	cout << "Введите компанию: ";
+	// РљРѕРјРїР°РЅРёСЏ
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕРјРїР°РЅРёСЋ: ";
 	cin >> buff;
 	if (company != nullptr) {
 		cout << "Delate company -> " << company << endl << endl;
@@ -64,8 +64,8 @@ void Keyboard::Input() {
 	strcpy_s(company, strlen(buff) + 1, buff);
 
 
-	// Модель
-	cout << "Введите модель: ";
+	// РњРѕРґРµР»СЊ
+	cout << "Р’РІРµРґРёС‚Рµ РјРѕРґРµР»СЊ: ";
 	cin >> buff;
 	if (model != nullptr) {
 		cout << "Delate model -> " << model << endl << endl;
@@ -75,28 +75,28 @@ void Keyboard::Input() {
 	strcpy_s(model, strlen(buff) + 1, buff);
 
 
-	// Время отклика
+	// Р’СЂРµРјСЏ РѕС‚РєР»РёРєР°
 	do {
-		cout << "Введите время отклика (мс): ";
+		cout << "Р’РІРµРґРёС‚Рµ РІСЂРµРјСЏ РѕС‚РєР»РёРєР° (РјСЃ): ";
 		cin >> responseTime;
 		if (responseTime <= 0)
-			cout << "Вы ввели неверное значение!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ!" << endl << endl;
 	} while (responseTime <= 0);
 
 
-	// Цена 
+	// Р¦РµРЅР° 
 	do {
-		cout << "Введите цену: ";
+		cout << "Р’РІРµРґРёС‚Рµ С†РµРЅСѓ: ";
 		cin >> price;
 
 		if (price <= 0)
-			cout << "Вы ввели неверную цену!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅСѓСЋ С†РµРЅСѓ!" << endl << endl;
 	} while (price <= 0);
 
 
-	// RGB - подсветка
+	// RGB - РїРѕРґСЃРІРµС‚РєР°
 	do {
-		cout << "Будет ли RGB - подсветка? (y - да, n - нет)\n> ";
+		cout << "Р‘СѓРґРµС‚ Р»Рё RGB - РїРѕРґСЃРІРµС‚РєР°? (y - РґР°, n - РЅРµС‚)\n> ";
 		cin >> log;
 
 		if (log == 'y')
@@ -104,20 +104,20 @@ void Keyboard::Input() {
 		else if (log == 'n')
 			RGB_Backlight = false;
 		else
-			cout << "Вы ввели неверный символ!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅС‹Р№ СЃРёРјРІРѕР»!" << endl << endl;
 	} while (log != 'y' && log != 'n');
 }
 void Keyboard::Print() const {
-	cout << "Компания: " << company << endl;
-	cout << "Модель: " << model << endl;
-	cout << "Время отклика: " << responseTime << "мс." << endl;
-	printf("RGD - подсветка: %s\n", RGB_Backlight == true ? "присутствует" : "отсутствует");
-	cout << "Цена: " << price << endl;
+	cout << "РљРѕРјРїР°РЅРёСЏ: " << company << endl;
+	cout << "РњРѕРґРµР»СЊ: " << model << endl;
+	cout << "Р’СЂРµРјСЏ РѕС‚РєР»РёРєР°: " << responseTime << "РјСЃ." << endl;
+	printf("RGD - РїРѕРґСЃРІРµС‚РєР°: %s\n", RGB_Backlight == true ? "РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚" : "РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚");
+	cout << "Р¦РµРЅР°: " << price << endl;
 }
 
 
-// Аксессоры
-// Геттеры
+// РђРєСЃРµСЃСЃРѕСЂС‹
+// Р“РµС‚С‚РµСЂС‹
 char* Keyboard::GetCompany() const { return company; }
 char* Keyboard::GetModel() const { return model; }
 
@@ -127,7 +127,7 @@ int Keyboard::GetPrice() const { return price; }
 bool Keyboard::GetRGB_Backlight() const { return RGB_Backlight; }
 
 
-// Сеттеры
+// РЎРµС‚С‚РµСЂС‹
 void Keyboard::SetCompany(const char* cp) {
 	if (cp != nullptr) {
 		cout << "Delate company -> " << this->company << endl;

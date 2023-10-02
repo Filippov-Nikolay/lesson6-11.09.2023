@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 class ComputerMouse {
 	char* company;
 	char* model;
@@ -10,19 +10,19 @@ class ComputerMouse {
 
 	bool RGB_Backlight;
 public:
-	// Конструкторы/Деструктор
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	ComputerMouse();
 	ComputerMouse(const char*, const char*, const char*, int, double, int, bool);
 	~ComputerMouse();
 
-	// Глубокое копирование
+	// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 	ComputerMouse(const ComputerMouse&);
 
 	void Input();
 	void Print() const;
 
-	// Аксессоры
-	// Геттеры
+	// РђРєСЃРµСЃСЃРѕСЂС‹
+	// Р“РµС‚С‚РµСЂС‹
 	char* GetCompany() const;
 	char* GetModel() const;
 	char* GetUSB_Interface() const;
@@ -34,7 +34,7 @@ public:
 	bool GetRGB_Backlight() const;
 
 
-	// Сеттеры
+	// РЎРµС‚С‚РµСЂС‹
 	void SetCompany(const char*);
 	void SetModel(const char*);
 	void SetUSB_Interface(const char*);

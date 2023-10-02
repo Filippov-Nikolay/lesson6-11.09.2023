@@ -1,11 +1,11 @@
-#include <iostream>
+п»ї#include <iostream>
 #include "Touchpad.h"
 
 using namespace std;
 
 // cp - company, md - model, cl - color, wdht - width, hght - height, pr - price 
 
-// Конструкторы/Деструктор
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 Touchpad::Touchpad() {
 	company = nullptr;
 	model = nullptr;
@@ -37,7 +37,7 @@ Touchpad::~Touchpad() {
 	delete[] color;
 }
 
-// Глубокое копирование
+// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 Touchpad::Touchpad(const Touchpad& obj) {
 	company = new char[strlen(company) + 1];
 	strcpy_s(company, strlen(obj.company) + 1, obj.company);
@@ -57,8 +57,8 @@ Touchpad::Touchpad(const Touchpad& obj) {
 void Touchpad::Input() {
 	char buff[100];
 
-	// Компания
-	cout << "Введите компанию: ";
+	// РљРѕРјРїР°РЅРёСЏ
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕРјРїР°РЅРёСЋ: ";
 	cin >> buff;
 	if (company != nullptr) {
 		cout << "Delate company -> " << company << endl << endl;
@@ -68,8 +68,8 @@ void Touchpad::Input() {
 	strcpy_s(company, strlen(buff) + 1, buff);
 
 
-	// Модель
-	cout << "Введите модель: ";
+	// РњРѕРґРµР»СЊ
+	cout << "Р’РІРµРґРёС‚Рµ РјРѕРґРµР»СЊ: ";
 	cin >> buff;
 	if (model != nullptr) {
 		cout << "Delate model -> " << model << endl << endl;
@@ -79,8 +79,8 @@ void Touchpad::Input() {
 	strcpy_s(model, strlen(buff) + 1, buff);
 
 	
-	// Цвет
-	cout << "Введите цвет: ";
+	// Р¦РІРµС‚
+	cout << "Р’РІРµРґРёС‚Рµ С†РІРµС‚: ";
 	cin >> buff;
 	if (color != nullptr) {
 		cout << "Delate color -> " << color << endl << endl;
@@ -90,47 +90,47 @@ void Touchpad::Input() {
 	strcpy_s(color, strlen(buff) + 1, buff);
 
 
-	// Ширина 
+	// РЁРёСЂРёРЅР° 
 	do {
-		cout << "Введите ширину: ";
+		cout << "Р’РІРµРґРёС‚Рµ С€РёСЂРёРЅСѓ: ";
 		cin >> width;
 
 		if (width <= 0)
-			cout << "Вы ввели неверную ширину!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅСѓСЋ С€РёСЂРёРЅСѓ!" << endl << endl;
 	} while (width <= 0);
 
 
-	// Высота 
+	// Р’С‹СЃРѕС‚Р° 
 	do {
-		cout << "Введите высоту: ";
+		cout << "Р’РІРµРґРёС‚Рµ РІС‹СЃРѕС‚Сѓ: ";
 		cin >> height;
 
 		if (height <= 0)
-			cout << "Вы ввели неверную высоту!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅСѓСЋ РІС‹СЃРѕС‚Сѓ!" << endl << endl;
 	} while (height <= 0);
 
 
-	// Цена 
+	// Р¦РµРЅР° 
 	do {
-		cout << "Введите цену: ";
+		cout << "Р’РІРµРґРёС‚Рµ С†РµРЅСѓ: ";
 		cin >> price;
 
 		if (price <= 0)
-			cout << "Вы ввели неверную цену!" << endl << endl;
+			cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅСѓСЋ С†РµРЅСѓ!" << endl << endl;
 	} while (price <= 0);
 }
 void Touchpad::Print() const {
-	cout << "Компания: " << company << endl;
-	cout << "Модель: " << model << endl;
-	cout << "Цвет: " << color << endl;
-	cout << "Ширина: " << width << endl;
-	cout << "Высота: " << height << endl;
-	cout << "Цена: " << price << endl;
+	cout << "РљРѕРјРїР°РЅРёСЏ: " << company << endl;
+	cout << "РњРѕРґРµР»СЊ: " << model << endl;
+	cout << "Р¦РІРµС‚: " << color << endl;
+	cout << "РЁРёСЂРёРЅР°: " << width << endl;
+	cout << "Р’С‹СЃРѕС‚Р°: " << height << endl;
+	cout << "Р¦РµРЅР°: " << price << endl;
 }
 
 
-// Аксессоры
-// Геттеры
+// РђРєСЃРµСЃСЃРѕСЂС‹
+// Р“РµС‚С‚РµСЂС‹
 char* Touchpad::GetCompany() const { return company; }
 char* Touchpad::GetModel() const { return model; }
 char* Touchpad::GetColor() const { return color; }
@@ -140,7 +140,7 @@ int Touchpad::GetHeight() const { return height; }
 int Touchpad::GetPrice() const { return price; }
 
 
-// Сеттеры
+// РЎРµС‚С‚РµСЂС‹
 void Touchpad::SetCompany(const char* cp) {
 	if (cp != nullptr) {
 		cout << "Delate company -> " << this->company << endl;

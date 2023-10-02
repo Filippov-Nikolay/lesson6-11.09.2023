@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 class Monitor {
 	char* company;
 	char* model;
@@ -8,19 +8,19 @@ class Monitor {
 	int monitorFrequency;
 	int price;
 public:
-	// Конструкторы/Деструктор
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹/Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	Monitor();
 	Monitor(const char*, const char*, const char*, int, int, int);
 	~Monitor();
 
-	// Глубокое копирование
+	// Р“Р»СѓР±РѕРєРѕРµ РєРѕРїРёСЂРѕРІР°РЅРёРµ
 	Monitor(const Monitor&);
 
 	void Input();
 	void Print() const;
 
-	// Аксессоры
-	// Геттеры
+	// РђРєСЃРµСЃСЃРѕСЂС‹
+	// Р“РµС‚С‚РµСЂС‹
 	char* GetCompany() const;
 	char* GetModel() const;
 	char* GetMatrix() const;
@@ -30,7 +30,7 @@ public:
 	int GetPrice() const;
 
 
-	// Сеттеры
+	// РЎРµС‚С‚РµСЂС‹
 	void SetCompany(const char*);
 	void SetModel(const char*);
 	void SetMatrix(const char*);
